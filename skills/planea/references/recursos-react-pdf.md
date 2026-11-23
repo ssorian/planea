@@ -6,7 +6,7 @@
 | Material existente adecuado (video, lámina oficial, interactivo) | Usarlo según [materiales existentes](materiales-existentes.md) |
 | Texto exacto: fichas, hojas de trabajo, rúbricas, listas, exámenes, tarjetas, guías de entrevista, organizadores | Kit React → PDF |
 | Ilustración, escena, personaje, portada o portadilla | `openai_image`, y el resultado se inserta en el recurso con `Figura` si lleva texto |
-| Juego para proyectar o imprimir | [juegos didácticos](juegos-didacticos.md) |
+| Juego (diseño, impreso o proyectado) | [juegos didácticos](juegos-didacticos.md) |
 | Lectura extensa | Kit React → PDF con texto maquetado, nunca como imagen |
 
 No generar con `openai_image` imágenes que contengan mucho texto: las letras salen con errores. El texto va en el kit y la ilustración en la imagen.

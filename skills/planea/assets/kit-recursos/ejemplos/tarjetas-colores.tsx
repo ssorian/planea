@@ -1,7 +1,7 @@
-// Hoja imprimible con las tarjetas A–D para los juegos «Tarjetas de colores» (quiz sin celulares).
+// Hoja imprimible con tarjetas A–D para juegos de respuesta simultánea sin celulares.
 // Cada tarjeta lleva color + letra + figura, así se distingue aunque se imprima en blanco y negro
 // o el alumno no distinga colores. Imprimir una hoja por alumno (o por pareja) y recortar.
-// Los colores y figuras coinciden con los del juego digital (assets/kit-juegos).
+// Colores y figuras según references/juegos-didacticos.md (A rojo triángulo, B azul círculo, C amarillo cuadrado, D verde rombo).
 import { Hoja, Encabezado, Consigna, Credito } from "../componentes";
 
 export const meta = { nombre: "tarjetas-colores", pagina: "letter" };

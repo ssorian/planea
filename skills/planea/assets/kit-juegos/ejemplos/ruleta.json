@@ -1,7 +1,0 @@
-{
-  "ejemplo": true,
-  "titulo": "Ruleta",
-  "modo": "nombres",
-  "noRepetir": true,
-  "elementos": ["Ana", "Beto", "Carla", "Diego", "Elena", "Fabián", "Gloria", "Héctor", "Irma", "Joaquín"]
-}

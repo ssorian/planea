@@ -89,7 +89,7 @@ instalar_dependencias() {
   if command -v bun >/dev/null; then gestor="bun install"
   elif command -v npm >/dev/null; then gestor="npm install --no-audit --no-fund"
   else echo "Aviso: no hay bun ni npm; los kits no tendrán dependencias." >&2; return 0; fi
-  for kit in kit-recursos kit-juegos; do
+  for kit in kit-recursos; do
     if [[ -f "$skill/assets/$kit/package.json" ]]; then
       echo "Instalando dependencias de $kit…"
       (cd "$skill/assets/$kit" && $gestor >/dev/null)

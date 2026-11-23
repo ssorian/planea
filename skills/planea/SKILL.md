@@ -8,7 +8,7 @@ metadata:
 ---
 
 ## Activation Contract
-Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividades y materiales, crear recursos, juegos e instrumentos de evaluación y producir la planeación DOCX de telesecundaria NEM. Si solo se pide análisis, no producir. Cargar solo los módulos que exija la tarea.
+Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividades y materiales, crear recursos, diseñar juegos e instrumentos de evaluación y producir la planeación DOCX de telesecundaria NEM. Si solo se pide análisis, no producir. Cargar solo los módulos que exija la tarea.
 
 ## Hard Rules
 - Intocables: contenidos, subcontenidos, PDA y sus claves del RAIPA. Secuencia, actividades, productos parciales y tiempos se pueden rediseñar.
@@ -19,7 +19,7 @@ Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividad
 - Señalar incongruencias del RAIPA con propuesta; no corregirlas en silencio.
 - RAIPA y planeaciones previas: solo lectura. Seguir el formato de la planeación modelo del usuario.
 - Leer y editar DOCX con `docx_tool.py`; no volcar XML crudo al contexto.
-- Juegos: mecánicas de género con nombre y aspecto originales; sin marcas, logos ni música de programas o apps.
+- Juegos: diseñarlos para cada PDA desde mecánicas sencillas y muy visuales; nombre y aspecto propios, sin marcas ni diseño de programas o apps. Construirlos solo si se aprueban.
 - Un campo a la vez; producir en DOCX solo diseños aprobados.
 - Instalar o usar servicios externos solo con permiso; los kits instalados no requieren permiso nuevo.
 
@@ -33,7 +33,7 @@ Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividad
 | Usar materiales existentes | [materiales](references/materiales-existentes.md) |
 | Rúbrica, lista de cotejo, escala, examen | [instrumentos](references/instrumentos-evaluacion.md) |
 | Fichas, hojas, instrumentos en PDF | [React → PDF](references/recursos-react-pdf.md) |
-| Juegos para repaso o activación | [juegos](references/juegos-didacticos.md) |
+| Diseñar juegos de repaso o activación | [juegos](references/juegos-didacticos.md) |
 | Leer o escribir la planeación DOCX | [documento DOCX](references/documento-docx.md) |
 | Falta reparto de horas o dato del contexto | Preguntar; no suponer. |
 | Las horas no alcanzan | Proponer recorte o fusión; pedir aprobación. |
@@ -43,7 +43,7 @@ Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividad
 2. Analizar el campo; reunir preguntas abiertas en un solo bloque.
 3. Investigar actividades y materiales; elegir metodología, modelo de sesión y juegos.
 4. Diseñar sesiones, cronograma, recursos e instrumento; comprobar cobertura de PDA, Bloom y tiempos; presentar para aprobación.
-5. Producir recursos (kit PDF, kit de juegos o materiales existentes) y la sección DOCX.
+5. Producir recursos (kit PDF, juegos aprobados o materiales existentes) y la sección DOCX.
 6. Verificar con la [lista](assets/lista-verificacion.md); retirar temporales.
 
 ## Output Contract
@@ -52,4 +52,4 @@ Diseño: tabla de sesiones, cobertura PDA → sesión → criterio, cambios al R
 ## References
 - [Diseño](references/diseno-proyecto.md) · [Metodologías](references/metodologias.md) · [Sesiones](references/construccion-sesiones.md) · [Investigación](references/investigacion-actividades.md) · [Materiales](references/materiales-existentes.md)
 - [Instrumentos](references/instrumentos-evaluacion.md) · [React → PDF](references/recursos-react-pdf.md) · [Juegos](references/juegos-didacticos.md) · [DOCX](references/documento-docx.md)
-- Assets: [plantilla de sesión](assets/plantilla-sesion.md), [ficha de actividad](assets/ficha-actividad.md), [catálogo](assets/catalogo-materiales.csv), [lista](assets/lista-verificacion.md), [kit PDF](assets/kit-recursos/README.md), [kit de juegos](assets/kit-juegos/README.md), [docx_tool](assets/herramientas-docx/README.md)
+- Assets: [plantilla de sesión](assets/plantilla-sesion.md), [ficha de actividad](assets/ficha-actividad.md), [catálogo](assets/catalogo-materiales.csv), [lista](assets/lista-verificacion.md), [kit PDF](assets/kit-recursos/README.md), [docx_tool](assets/herramientas-docx/README.md)

@@ -8,7 +8,7 @@ Skill para agentes de IA (Pi, Claude Code y compatibles con `SKILL.md`) que dise
 - **Investiga actividades que funcionan y materiales existentes** (videos, imágenes, hojas, diapositivas), con criterios de selección, licencias y citas.
 - **Crea instrumentos de evaluación:** rúbricas, listas de cotejo, escalas, exámenes con tabla de especificaciones, autoevaluación y coevaluación.
 - **Produce recursos imprimibles** con React → PDF (Chromium sin ventana).
-- **Construye minijuegos para proyectar** con Vite, en un solo HTML que funciona sin internet: encuesta por equipos, quiz con tarjetas de colores sin celulares, tablero de categorías y ruleta.
+- **Orienta el diseño de juegos didácticos**: mecánicas sencillas (respuesta simultánea con tarjetas de colores, respuestas ocultas por equipos, tablero de categorías, memorama, lotería, rally…), reglas didácticas, diseño muy visual y cómo construirlos impresos o proyectados con Vite cuando se aprueban.
 - **Lee y edita la planeación en Word** con `docx_tool.py`, que conserva el formato y gasta pocos tokens.
 
 Contenidos, subcontenidos y PDA del RAIPA nunca se modifican. Todo lo demás se rediseña y se presenta para aprobación antes de producirlo.
@@ -54,7 +54,7 @@ Copiar en Pi, Claude Code u otro agente con terminal:
 | Programa | Para qué | ¿Obligatorio? |
 | --- | --- | --- |
 | Agente compatible con `SKILL.md` (Pi, Claude Code u otro) | Usar la skill | Sí |
-| [Bun](https://bun.sh) 1.1+ (o Node.js 20+ con npm) | Kit PDF y kit de juegos | Sí, para crear recursos y juegos |
+| [Bun](https://bun.sh) 1.1+ (o Node.js 20+ con npm) | Kit PDF (y juegos proyectados con Vite, si se construyen) | Sí, para crear recursos |
 | Navegador Chromium: Chromium, Google Chrome o Microsoft Edge | Generar PDF y capturas | Sí, para PDF; Edge ya viene en Windows |
 | Python 3.9+ | `docx_tool.py` (solo biblioteca estándar, sin paquetes extra) | Sí, para leer y editar Word |
 | Git | Instalar desde un clon y actualizar | Opcional (en Windows el instalador puede bajar el ZIP) |
@@ -88,14 +88,15 @@ brew install --cask google-chrome
 ```
 
 ### Paquetes de JavaScript
-El instalador los instala solos con `bun install` (o `npm install`) dentro de cada kit. Esto requiere internet la primera vez; después todo funciona sin conexión.
+El instalador los instala solo con `bun install` (o `npm install`) dentro del kit. Esto requiere internet la primera vez; después todo funciona sin conexión.
 
 | Kit | Paquetes |
 | --- | --- |
 | `kit-recursos` (React → PDF) | `react`, `react-dom` |
-| `kit-juegos` (Vite → HTML) | `vite`, `@vitejs/plugin-react`, `vite-plugin-singlefile`, `react`, `react-dom` |
 
-Con `--sin-dependencias` (`-SinDependencias` en Windows) se omiten; después se pueden instalar con `bun install` en cada kit.
+Con `--sin-dependencias` (`-SinDependencias` en Windows) se omiten; después se pueden instalar con `bun install` en el kit.
+
+Los juegos proyectados no traen dependencias preinstaladas: cuando se aprueba uno, el agente crea su proyecto con Vite (`vite`, `@vitejs/plugin-react`, `vite-plugin-singlefile`, React), lo que requiere internet la primera vez.
 
 ### Opcional en el agente
 - Búsqueda web, para investigar actividades y materiales.
@@ -108,13 +109,12 @@ skills/planea/
 ├── references/                 # módulos que el agente carga según la tarea
 └── assets/
     ├── kit-recursos/           # React → PDF (fichas, rúbricas, exámenes)
-    ├── kit-juegos/             # Vite → HTML único sin internet
     ├── herramientas-docx/      # docx_tool.py
     └── plantillas y catálogos
 ```
 
 ## Uso
-Pide a tu agente, por ejemplo: «Analiza el campo de Lenguajes del RAIPA y propón las sesiones», «Haz la rúbrica del producto final» o «Crea un juego de repaso con tarjetas de colores».
+Pide a tu agente, por ejemplo: «Analiza el campo de Lenguajes del RAIPA y propón las sesiones», «Haz la rúbrica del producto final» o «Propón un juego de repaso para el cierre de la sesión 3».
 
 ## Licencia
-Apache-2.0. Los juegos usan mecánicas de género con nombres y diseño propios; no están afiliados a ningún programa de televisión ni aplicación.
+Apache-2.0. La guía de juegos pide mecánicas de género con nombres y diseño propios, sin afiliación a programas de televisión ni aplicaciones.

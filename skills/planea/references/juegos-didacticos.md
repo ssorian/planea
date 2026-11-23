@@ -1,67 +1,75 @@
-# Juegos didácticos
+# Juegos didácticos: cómo diseñarlos
 
-Los juegos son un recurso de práctica y repaso, no de evaluación sumativa. Incluir uno solo si sirve al PDA de la sesión; nunca como relleno.
+No hay juegos prefabricados. Diseñar cada juego para el PDA y la sesión concreta, a partir de una mecánica sencilla y conocida, con fuerte apoyo visual. Construirlo solo cuando el diseño esté aprobado.
 
-## Cuándo usar un juego
-| Momento | Uso | Bloom que cubre por defecto |
-| --- | --- | --- |
-| Activación de saberes (inicio) | Explorar qué sabe el grupo antes de enseñar | Recordar, comprender |
-| Repaso (cierre o sesión previa a la evaluación) | Fijar datos, vocabulario, procedimientos | Recordar, comprender, aplicar |
-| Recuperación | Retomar lo que el diagnóstico o el resumen del juego marcó como débil | Comprender, aplicar |
+## 1. Partir del propósito
+- Definir qué PDA y qué nivel de Bloom practica el juego. El juego es un medio de práctica de recuperación, aplicación o discusión, nunca un relleno.
+- Ubicarlo en la sesión: activar saberes previos (inicio), practicar (desarrollo) o recuperar lo aprendido (cierre).
+- Duración: 5–15 minutos, incluidas las reglas. Reglas explicables en menos de un minuto.
+- Cerrar con una reflexión breve: ¿qué fue difícil?, ¿qué aprendimos?
 
-Un juego de respuesta corta se queda en recordar y comprender. Para subir de nivel:
-- **Aplicar:** plantear casos o problemas nuevos, no definiciones.
-- **Analizar:** pedir que comparen, clasifiquen o expliquen por qué una opción no es correcta.
-- **Evaluar:** pedir justificar la respuesta antes de revelarla («¿qué evidencia la apoya?»).
-- **Crear:** que cada equipo redacte las preguntas y respuestas del siguiente juego y las valide con el docente.
-
-Declarar en la sesión el nivel de Bloom real que trabaja el juego; no atribuirle más del que alcanza.
-
-## Reglas
-1. Participan **todos**: elegir juegos en los que cada alumno responde (tarjetas, equipos con roles rotativos); evitar los de turno único donde la mayoría espera.
-2. Sin humillar: no exhibir errores individuales ni castigar. El error es información; comentarlo con el grupo.
-3. Equipos **mixtos** en nivel y afinidad; rotar la integración entre sesiones.
-4. Tiempo acotado: 10–20 minutos; fijar duración y número de rondas antes de empezar.
-5. Respuestas **verificadas** antes de jugar: contrastarlas con el libro o la fuente del PDA. Nunca generar preguntas con respuestas sin revisar; el kit no trae contenido.
-6. Premiar el proceso (argumentar, colaborar), no solo el puntaje. No usar el resultado como calificación.
-7. Prever **alternativa impresa** si no hay proyector, energía o computadora: tarjetas de colores impresas y preguntas leídas por el docente, o un juego sin pantalla del catálogo.
-8. Cerrar siempre con una pregunta de metacognición («¿qué tema me costó?») y anotar qué reforzar.
-
-## Juegos digitales del kit
-Kit en `~/.pi/agent/skills/planea/assets/kit-juegos/` (instrucciones, esquemas JSON y controles en su `README.md`). Cada juego es un HTML único que funciona con doble clic, sin internet.
-
-| Juego | Mecánica | Uso didáctico |
-| --- | --- | --- |
-| `encuesta` «La comunidad opina» | Pregunta con 4–8 respuestas ocultas con puntos; 3 errores; dos equipos | Activación de saberes y vocabulario: respuestas que el grupo conoce o puede predecir. Pedir las respuestas más frecuentes de una encuesta real hecha antes al grupo |
-| `tarjetas` «Tarjetas de colores» | Quiz sin celulares: el grupo levanta tarjeta A–D; el docente anota cuántos acertaron; resumen por pregunta y tema | Repaso y diagnóstico rápido de todo el grupo. Imprimir tarjetas con `kit-recursos/ejemplos/tarjetas-colores.tsx`. Usar el campo `tema` para saber qué reforzar |
-| `tablero` «Tablero de categorías» | Categorías × valores; celda abre pregunta; puntos a equipos | Repaso por temas con dificultad creciente: valor bajo = recordar, valor alto = aplicar o justificar |
-| `ruleta` «Ruleta» | Giro animado sobre nombres o preguntas; opción de no repetir | Elegir quién participa con equidad; sortear preguntas o roles; es complemento de otros juegos |
-
-Flujo para producir un juego digital:
-1. Redactar los datos JSON desde los PDA y los contenidos reales de la sesión; verificar cada respuesta.
-2. Construir: `bun ~/.pi/agent/skills/planea/assets/kit-juegos/construir.ts <juego> <datos.json> <salida.html>`. Corregir los errores que reporte el validador.
-3. Capturar con `capturar.ts` (mismo kit) y **revisar la imagen**: texto completo, legible y sin cortes.
-4. Probar el HTML en el navegador antes de entregarlo.
-
-Para `tarjetas`, producir también las tarjetas A–D (copia del ejemplo del kit-recursos) y mencionar en la sesión que se imprimen una por alumno o pareja.
-
-## Juegos sin pantalla
-| Juego | Mecánica breve | Uso didáctico | Material |
+## 2. Elegir una mecánica sencilla
+| Mecánica | Cómo se juega | Bloom habitual | Cómo subir de nivel |
 | --- | --- | --- | --- |
-| Lotería de conceptos | Tablas con conceptos o imágenes; el docente lee definiciones y los alumnos marcan el concepto | Vocabulario y definiciones (recordar, comprender) | Tablas impresas (kit React → PDF), fichas o frijoles, tarjetas de definiciones |
-| Basta temático | Por columnas de categorías del tema, escribir en tiempo fijo una palabra que inicie con la letra sorteada | Vocabulario y clasificación | Hoja con categorías; cronómetro |
-| Maratón de tablero impreso | Tablero de casillas con preguntas por nivel; equipos avanzan al acertar | Repaso largo por unidad | Tablero y tarjetas de preguntas impresos; dado; fichas |
-| Verdadero/falso corporal | Enunciados leídos; el grupo se mueve a un lado (verdadero) o a otro (falso) y justifica | Corregir ideas previas; activar saberes | Enunciados verificados; espacio libre |
-| Bingo de conceptos | Cartón con conceptos; el docente lee características y se marca el que corresponde | Relacionar concepto y característica | Cartones impresos; tarjetas de pistas |
-| Reto de pistas tipo escape | Equipos resuelven una secuencia de pistas (problema, texto, acertijo) para abrir un «candado» de respuesta final | Aplicar y analizar; trabajo colaborativo | Sobres con pistas; clave de respuesta; cronómetro |
-| Papa caliente de preguntas | Pasar un objeto mientras el docente cuenta o marca el tiempo; quien lo tiene al parar responde o elige a quien ayude | Repaso con participación; baja presión | Objeto blando; tarjetas o lista de preguntas |
-| Rally por estaciones | Equipos rotan por estaciones con una tarea breve cada una (problema, lectura, experimento) | Aplicar y practicar varias habilidades | Tarjetas de estación; hoja de registro; cronómetro |
+| Respuesta simultánea | Todos levantan a la vez una tarjeta de color (A–D), una pizarrita o los dedos | 1–2 | Opciones que exigen aplicar o analizar; pedir a un alumno que justifique su elección |
+| Respuestas ocultas por equipos | Adivinar las respuestas más frecuentes de una encuesta del grupo o la comunidad | 1–2 | Encuesta sobre causas, consecuencias o soluciones; justificar cada respuesta |
+| Tablero de categorías | Elegir categoría y valor; más valor, más difícil | 1–4 | Valores altos con problemas, casos o análisis |
+| Azar (ruleta, dado, papelitos) | El azar elige quién responde o qué pregunta | Según la pregunta | Preguntas abiertas de evaluar o crear |
+| Emparejar (memorama) | Unir concepto con definición, imagen, ejemplo o traducción | 1–2 | Pares de causa-efecto, problema-solución |
+| Ordenar | Poner en secuencia pasos, hechos, etapas o párrafos | 2–3 | Justificar el orden; detectar el paso que falta |
+| Clasificar | Repartir tarjetas en grupos o «canastas» | 2–4 | Que los equipos inventen el criterio de clasificación |
+| Adivinar con pistas | «¿Quién o qué soy?»: pistas de lo general a lo específico | 1–3 | Que los equipos escriban las pistas |
+| Carrera de casillas | Avanzar en un tablero al acertar retos | Según los retos | Retos de aplicación en casillas especiales |
+| Lotería o bingo | Marcar el concepto cuando se lee su definición o ejemplo | 1–2 | Leer ejemplos o situaciones, no definiciones |
+| Basta temático | Escribir una palabra por categoría con una letra dada | 1–2 | Categorías de relación: «causa de…», «ejemplo de…» |
+| Verdadero o falso corporal | Moverse a un lado del salón según la respuesta | 1–2 | Afirmaciones con trampa; corregir la falsa |
+| Reto de pistas (tipo escape) | Resolver acertijos encadenados para abrir el siguiente | 3–4 | Acertijos que combinan contenidos |
+| Estaciones o rally | Equipos rotan por estaciones con retos distintos | 2–6 | Una estación de crear o evaluar |
 
-Para cada uno: elaborar tarjetas, tablas o tableros con el kit React → PDF (ver [recursos](recursos-react-pdf.md)) y entregar las reglas de una cuarta de página.
+Combinar o adaptar mecánicas está permitido; inventar reglas complejas no. Usar nombres y aspecto propios: no copiar nombres, logotipos, música ni diseño de programas de televisión o aplicaciones comerciales.
 
-## Enlazar el juego como anexo
-1. Guardar el HTML en `Recursos/` del proyecto con nombre estable `anexo-NN-nombre.html`, y los datos en `Recursos/fuente/anexo-NN-nombre.json`.
-2. Generar la **captura real** de pantalla con `capturar.ts` (con `--teclas` para mostrar un estado representativo) y usarla como vista previa en ANEXOS. No inventar ni dibujar la vista previa.
-3. En ANEXOS indicar el nombre del archivo, que se abre con doble clic en el navegador (Edge o Chrome en Windows), que no requiere internet y los atajos esenciales (`F` pantalla completa, `H` ayuda).
-4. En la sesión citar el anexo en la actividad donde se juega y declarar el nivel de Bloom, el tiempo y la alternativa impresa.
-5. Identificar el material como «Elaboración propia con apoyo de IA». Usar nombres propios del juego; no emplear nombres, logotipos, música ni tableros de concursos comerciales.
+## 3. Reglas didácticas
+- **Participación de todos:** preferir respuesta simultánea o por equipos sobre turnos individuales donde la mayoría espera.
+- **Sin celulares:** tarjetas de colores, pizarritas, papel, cuerpo o proyector.
+- **Equipos mixtos y rotación de roles** (vocero, anotador, verificador).
+- **Retroalimentación inmediata:** tras cada respuesta, mostrar la correcta y explicar brevemente por qué.
+- **El error es seguro:** no exhibir a nadie, no eliminar jugadores y no restar puntos de forma humillante.
+- **Competencia sana:** entre equipos, con marcador visible; reconocer también el esfuerzo y la mejora.
+- **Contenido verificado:** cada pregunta tiene respuesta correcta revisada; sin ambigüedades ni trampas injustas.
+- **Registro formativo:** anotar qué preguntas fallaron más para retomarlas.
+- **DUA:** apoyo visual y oral en cada pregunta, tiempo suficiente y roles que no dependan solo de la lectura.
+
+## 4. Diseño visual
+- **Una idea por pantalla o tarjeta;** poco texto y palabras clave en lugar de párrafos.
+- **Legible de lejos:**
+  - proyectado: preguntas de 48 px o más, títulos de 64 px o más;
+  - impreso para todo el grupo: 28 pt o más;
+  - tarjetas individuales: 18 pt o más.
+- **Alto contraste** y paleta reducida: 1 color de acento y colores fijos para las opciones.
+- **Nunca solo color:** cada opción lleva color, letra y figura (A rojo triángulo, B azul círculo, C amarillo cuadrado, D verde rombo).
+- **Íconos e imágenes que expliquen,** no que decoren: diagramas, fotos reales o ilustraciones pertinentes.
+- **Retroalimentación muy visible:** correcto/incorrecto con color, ícono y la respuesta escrita.
+- **Marcador y tiempo siempre visibles** cuando el juego los usa.
+- **Animaciones breves** (menos de 1 segundo), solo para mostrar un cambio de estado.
+- **Coherencia:** la misma estructura en todas las pantallas o tarjetas del juego.
+
+## 5. Elegir el formato
+| Situación del aula | Formato |
+| --- | --- |
+| Sin proyector o sin electricidad confiable | Impreso: tarjetas, tableros, cartas, hojas de registro (kit React → PDF) |
+| Con proyector o televisión | Proyectado: página HTML sin internet (ver §6) |
+| Sin materiales | Corporal u oral: verdadero/falso con movimiento, adivinanzas, papa caliente de preguntas |
+
+Ofrecer siempre una alternativa impresa u oral del juego proyectado.
+
+## 6. Construir un juego proyectado (Vite)
+Solo con el diseño aprobado. La primera instalación requiere internet y permiso del usuario.
+1. Crear el proyecto en `Recursos/juegos/<nombre>/` del proyecto didáctico: `bun create vite <nombre> --template react-ts`; añadir `vite-plugin-singlefile` para que el build sea un solo HTML que funcione con doble clic y sin internet.
+2. Separar los datos (preguntas, respuestas, puntos) en un JSON y validarlos al construir; la lógica no contiene contenido curricular.
+3. Controles por teclado y ratón; atajos visibles en una pantalla de ayuda; pantalla completa.
+4. Sin recursos externos: fuentes del sistema, imágenes locales incrustadas, sin sonidos con derechos.
+5. Construir, abrir el HTML con Chromium sin ventana (`--screenshot`) y revisar las capturas de cada estado del juego; buscar en el HTML que no haya URL externas.
+6. Guardar el HTML final en `Recursos/` y la captura real de la pantalla principal como vista previa en ANEXOS.
+
+## 7. Ficha del juego (para el diseño)
+Presentar cada juego con: nombre propio, PDA y nivel de Bloom, momento de la sesión, mecánica y reglas en 3–5 pasos, organización, material, tiempo, retroalimentación prevista, variantes DUA, alternativa sin proyector y lista de preguntas con su respuesta verificada.
