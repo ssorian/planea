@@ -1,23 +1,24 @@
 # Herramientas
 
-La skill no trae código. Usar herramientas existentes, de preferencia ejecutadas al momento sin instalación global (`uvx`, `uv run --with`, `npx`, `bunx`). Antes de usar una, comprobar que está disponible (`command -v`, importación). La primera ejecución descarga paquetes: pedir permiso si el entorno o el usuario lo exigen. Escribir los scripts auxiliares en una carpeta temporal o en `Recursos/fuente/`, nunca dentro de la skill.
+La skill no trae código. Solo se necesitan **Node.js** (`npx`) y **uv** (`uvx`, `uv run --with`): con ellos se ejecuta al momento todo lo demás, sin instalaciones globales. Antes de usar una herramienta, comprobar qué hay (`command -v node uv`). La primera ejecución descarga paquetes (y Playwright descarga su Chromium con `uvx playwright install chromium`): pedir permiso si el entorno o el usuario lo exigen. Escribir los scripts auxiliares en una carpeta temporal o en `Recursos/fuente/`, nunca dentro de la skill.
 
 ## Elegir la herramienta
-| Tarea | Primera opción | Alternativas |
+| Tarea | Comando o herramienta (vía uv o Node) | Alternativa si ya existe en el equipo |
 | --- | --- | --- |
-| Leer un DOCX con pocos tokens | `uvx --from 'markitdown[docx]' markitdown archivo.docx` (Markdown con tablas) | Script con python-docx que imprima un mapa compacto; `pandoc -t markdown` si está instalado |
-| Mapear tablas y celdas | Script con python-docx: una línea por celda única (`T2 F3 C1 "texto…"`) | `zipfile` + lectura de XML |
-| Editar texto, celdas y tablas | python-docx: `uv run --with python-docx python script.py` | lxml para lo que python-docx no cubre |
+| Leer un DOCX con pocos tokens | `uvx --from 'markitdown[docx]' markitdown archivo.docx` (Markdown con tablas) | `pandoc -t markdown` |
+| Mapear tablas y celdas | Script con python-docx (`uv run --with python-docx python mapa.py`): una línea por celda única (`T2 F3 C1 "texto…"`) | `zipfile` + lectura de XML |
+| Editar texto, celdas y tablas | python-docx: `uv run --with python-docx python script.py` | lxml para lo que python-docx no cubre (`--with lxml`) |
 | Copiar tablas o secciones entre documentos (con estilos, numeración e imágenes) | docxcompose: `uv run --with docxcompose python script.py` | python-docx + copia manual de relaciones, estilos y numeración |
-| Validar un DOCX | Reabrir con python-docx y con `zipfile`; comparar conteos antes y después | `soffice --headless --convert-to pdf` para renderizar, si hay LibreOffice |
-| Recurso HTML → PDF | Chromium, Chrome o Edge sin ventana: `chromium --headless --no-pdf-header-footer --print-to-pdf=salida.pdf recurso.html` | `npx playwright pdf file:///ruta/recurso.html salida.pdf` |
-| Recurso React → PDF | Renderizar a HTML estático (`react-dom/server`, `bunx`/`bun` en `Recursos/fuente/`) y convertir el HTML | Construir con Vite y convertir el HTML resultante |
-| Vista previa y conteo de páginas | `pdftoppm -png -r 110 salida.pdf vista` y `pdfinfo salida.pdf` (Poppler) | Captura del navegador: `chromium --headless --screenshot=vista.png --window-size=850,1100 recurso.html` |
-| Juego proyectado | `bunx create-vite@latest <nombre> --template react-ts` + `vite-plugin-singlefile` | HTML único escrito a mano |
-| Ilustraciones | `openai_image` (u otra herramienta de imágenes del agente) | Materiales existentes con licencia |
+| Validar un DOCX | Reabrir con python-docx y con `zipfile`; comparar conteos antes y después | LibreOffice (`soffice --headless --convert-to pdf`) para renderizar |
+| Recurso HTML → PDF | Playwright con uv: `uv run --with playwright python a_pdf.py`, con `page.pdf(path=…, prefer_css_page_size=True, print_background=True)` | Chromium, Chrome o Edge del sistema: `--headless --no-pdf-header-footer --print-to-pdf=salida.pdf recurso.html`; o `npx playwright pdf` (usa `--paper-format`, no el `@page`) |
+| Recurso React → PDF | Renderizar a HTML estático con `react-dom/server` (`npx tsx render.tsx`, con React instalado en `Recursos/fuente/`) y convertir el HTML | Construir con Vite y convertir el resultado |
+| Vista previa y conteo de páginas | PyMuPDF: `uv run --with pymupdf python vista.py` (`page.get_pixmap(dpi=110).save(…)`, `len(doc)`) | Poppler: `pdftoppm -png -r 110` y `pdfinfo` |
+| Captura de un juego o una pantalla | Playwright: `page.screenshot(path=…)` en cada estado | `npx playwright screenshot <url> captura.png` |
+| Juego proyectado | `npm create vite@latest <nombre> -- --template react-ts`, `vite-plugin-singlefile` y `npx vite build` | HTML único escrito a mano |
+| Ilustraciones | Generación de imágenes del agente (`openai_image` u otra) | Materiales existentes con licencia |
 | Investigación | Búsqueda web y lectura de páginas del agente | Solo fuentes locales si no hay red |
 
-En Windows: `py` o `python` en lugar de `python3`; el navegador suele ser `msedge.exe` (Edge viene instalado). En macOS: `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`.
+En Windows: `uv run` y `npx` funcionan igual. Para scripts Python, `uv run` elige el intérprete; no hace falta `py` ni `python3`.
 
 ## Reglas para DOCX
 - **Leer poco:** mapear primero la estructura y luego leer solo los rangos necesarios. No volcar el XML ni el documento completo al contexto.

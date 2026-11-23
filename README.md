@@ -39,26 +39,24 @@ Copy-Item -Recurse planea\skills\planea $HOME\.pi\agent\skills\   # Windows
 Para actualizar: `git pull` y volver a copiar. Para desarrollo se puede usar un enlace simbólico (en Windows, una unión de directorio: `New-Item -ItemType Junction`).
 
 ### Pedirle a un agente que la instale
-> Instala la skill planea desde https://github.com/ssorian/planea: copia la carpeta `skills/planea` del repositorio a mi carpeta de skills, confirma que existe `SKILL.md` y dime qué herramientas de `references/herramientas.md` faltan en este equipo.
+> Instala la skill planea desde https://github.com/ssorian/planea: copia la carpeta `skills/planea` del repositorio a mi carpeta de skills, confirma que existe `SKILL.md` y y dime si faltan Node.js o uv en este equipo.
 
-## Herramientas que usará el agente
-No hace falta instalarlas antes. El agente comprueba qué hay y, con permiso, ejecuta lo que falte al momento con `uvx`, `uv run --with`, `npx` o `bunx`.
+## Dependencias
+Solo dos:
 
-| Herramienta | Para qué | Recomendación |
-| --- | --- | --- |
-| [uv](https://docs.astral.sh/uv/) | Ejecutar `python-docx`, `docxcompose` y `markitdown` sin instalación global | Muy recomendado |
-| Python 3.9+ | Scripts auxiliares para Word | Necesario para editar DOCX |
-| Chromium, Google Chrome o Microsoft Edge | Pasar recursos HTML a PDF y hacer capturas | Necesario para PDF (Edge ya viene en Windows) |
-| Node.js con `npx`, o [Bun](https://bun.sh) con `bunx` | Playwright, React y Vite cuando hagan falta | Opcional |
-| Poppler (`pdftoppm`, `pdfinfo`) | Vistas previas y conteo de páginas | Recomendado |
-| LibreOffice | Renderizar DOCX para revisarlo | Opcional |
-| Búsqueda web y generación de imágenes del agente | Investigar materiales e ilustrar recursos | Recomendado |
+| Dependencia | Para qué |
+| --- | --- |
+| [Node.js](https://nodejs.org) (incluye `npx`) | Vite, React y Playwright cuando hagan falta |
+| [uv](https://docs.astral.sh/uv/) (incluye `uvx`) | Python y sus bibliotecas al momento: `python-docx`, `docxcompose`, `markitdown`, `pymupdf`, `playwright` |
 
-Instalación rápida de lo recomendado:
-- **Windows:** `winget install astral-sh.uv Python.Python.3.12`; Poppler con `scoop install poppler`.
-- **Debian/Ubuntu:** `curl -LsSf https://astral.sh/uv/install.sh | sh` y `sudo apt install python3 chromium poppler-utils`.
-- **Arch:** `sudo pacman -S uv python chromium poppler`.
-- **macOS:** `brew install uv python poppler` y `brew install --cask google-chrome`.
+Todo lo demás lo obtiene el agente al usarlo, sin instalaciones globales. La primera vez descarga paquetes (y el Chromium de Playwright), por lo que pedirá permiso y necesitará internet; después funciona sin conexión.
+
+Instalación:
+- **Windows:** `winget install OpenJS.NodeJS.LTS astral-sh.uv`
+- **macOS:** `brew install node uv`
+- **Linux:** Node.js con el gestor de paquetes de la distribución (o [nvm](https://github.com/nvm-sh/nvm)/[fnm](https://github.com/Schniz/fnm)); uv con `curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+Si el equipo ya tiene Chromium, Chrome, Edge, Poppler o LibreOffice, el agente puede usarlos, pero no son necesarios.
 
 ## Estructura
 ```

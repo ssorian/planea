@@ -65,11 +65,11 @@ Ofrecer siempre una alternativa impresa u oral del juego proyectado.
 
 ## 6. Construir un juego proyectado (Vite)
 Solo con el diseño aprobado. Comandos en [herramientas](herramientas.md); la primera ejecución descarga paquetes y requiere permiso.
-1. Crear el proyecto en `Recursos/juegos/<nombre>/` del proyecto didáctico: `bun create vite <nombre> --template react-ts`; añadir `vite-plugin-singlefile` para que el build sea un solo HTML que funcione con doble clic y sin internet.
+1. Crear el proyecto en `Recursos/juegos/<nombre>/` del proyecto didáctico: `npm create vite@latest <nombre> -- --template react-ts`; añadir `vite-plugin-singlefile` para que el build sea un solo HTML que funcione con doble clic y sin internet.
 2. Separar los datos (preguntas, respuestas, puntos) en un JSON y validarlos al construir; la lógica no contiene contenido curricular.
 3. Controles por teclado y ratón; atajos visibles en una pantalla de ayuda; pantalla completa.
 4. Sin recursos externos: fuentes del sistema, imágenes locales incrustadas, sin sonidos con derechos.
-5. Construir, abrir el HTML con Chromium sin ventana (`--screenshot`) y revisar las capturas de cada estado del juego; buscar en el HTML que no haya URL externas.
+5. Construir, abrir el HTML con Playwright y capturar cada estado del juego (ver [herramientas](herramientas.md)); revisar las capturas de cada estado del juego; buscar en el HTML que no haya URL externas.
 6. Guardar el HTML final en `Recursos/` y la captura real de la pantalla principal como vista previa en ANEXOS.
 
 ## 7. Ficha del juego (para el diseño)
