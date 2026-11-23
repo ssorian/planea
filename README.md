@@ -1,6 +1,6 @@
 # planea
 
-Skill para agentes de IA (Pi, Claude Code y compatibles con `SKILL.md`) que diseña y produce **planeaciones didácticas de telesecundaria NEM** a partir del RAIPA.
+Skill para agentes de IA (Pi, Claude Code, Codex y compatibles con `SKILL.md`) que diseña y produce **planeaciones didácticas de telesecundaria NEM** a partir del RAIPA.
 
 Trae instrucciones y guías, más tres herramientas pequeñas en Python (leer y editar DOCX, HTML a PDF y vista previa de PDF) con sus pruebas. Le dice al agente qué hacer, con qué criterios y con qué herramientas.
 
@@ -29,7 +29,10 @@ Copiar la carpeta `skills/planea` a la carpeta de skills del agente:
 | --- | --- |
 | Pi | `~/.pi/agent/skills/` |
 | Claude Code | `~/.claude/skills/` |
+| Codex (CLI, app e IDE) | `~/.agents/skills/` (personal) o `.agents/skills/` en la raíz del repositorio (proyecto) |
 | Otros | `~/.agents/skills/` o la que indique el agente |
+
+Pi también lee `~/.agents/skills/`: si usas Pi y Codex, instala solo ahí para no tener la skill duplicada. En Codex, reinicia la sesión tras instalar; se invoca sola por su descripción o con `$planea`.
 
 ```bash
 git clone https://github.com/ssorian/planea.git
