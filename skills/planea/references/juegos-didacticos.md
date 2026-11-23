@@ -45,7 +45,7 @@ Tomar como base uno de los [estilos visuales de referencia](estilos-visuales.md)
 - **Legible de lejos:** tamaños mínimos para proyección, lámina de grupo y tarjetas según [diseño de recursos](diseno-recursos.md) §3 (fuente única).
 - **Alto contraste** y paleta reducida: 1 color de acento y colores fijos para las opciones.
 - **Nunca solo color:** cada opción lleva color, letra y figura (A rojo triángulo, B azul círculo, C amarillo cuadrado, D verde rombo).
-- **Íconos e imágenes que expliquen,** no que decoren: diagramas, fotos reales o ilustraciones pertinentes.
+- **Íconos e imágenes que expliquen,** no que decoren: diagramas, fotos reales o ilustraciones pertinentes. Personajes, fichas y figuras del juego se pueden dibujar en SVG o React ([figuras](figuras-html.md)).
 - **Retroalimentación muy visible:** correcto/incorrecto con color, ícono y la respuesta escrita.
 - **Marcador y tiempo siempre visibles** cuando el juego los usa.
 - **Animaciones breves** (menos de 1 segundo), solo para mostrar un cambio de estado.

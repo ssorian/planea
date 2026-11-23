@@ -7,7 +7,8 @@ No hay plantillas ni componentes. Los cinco [estilos visuales de referencia](est
 | --- | --- |
 | Ya existe un material adecuado | Usarlo según [materiales existentes](materiales-existentes.md) |
 | Texto exacto (fichas, hojas, instrumentos, tarjetas, guías, organizadores, lecturas) | Diseñar en HTML (o React) y convertir a PDF |
-| Ilustración, escena, portada o portadilla | Generar la imagen e insertarla en el recurso HTML si lleva texto |
+| Figura de apoyo: animal, planta, vehículo, objeto, diagrama | Dibujarla en SVG o React según [figuras](figuras-html.md) |
+| Ilustración detallada, escena, portada o portadilla | Generar la imagen e insertarla en el recurso HTML si lleva texto |
 | Juego | [juegos didácticos](juegos-didacticos.md) |
 
 No pedir texto largo dentro de imágenes generadas: sale con errores. El texto va en HTML y la imagen se inserta.

@@ -37,6 +37,7 @@ Ruta: **solo análisis** (no producir) · **pieza suelta** (un recurso, instrume
 | Rúbrica, lista de cotejo, escala, examen | [instrumentos](references/instrumentos-evaluacion.md) |
 | Diseñar recursos y pasarlos a PDF | [diseño de recursos](references/diseno-recursos.md) |
 | Diseñar juegos de repaso o activación | [juegos](references/juegos-didacticos.md) |
+| Dibujar figuras (animales, plantas, autos, diagramas) en HTML/React | [figuras](references/figuras-html.md) |
 | Estilo visual, layout y tokens | [estilos visuales](references/estilos-visuales.md) |
 | Estructura de la planeación | [estructura](references/estructura-planeacion.md) |
 | Leer o escribir el DOCX | [documento DOCX](references/documento-docx.md) + [herramientas](references/herramientas.md) |
