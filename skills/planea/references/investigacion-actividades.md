@@ -3,6 +3,8 @@
 ## Cuándo investigar
 Antes de inventar una actividad para un tema, PDA o etapa, buscar si ya existe una actividad probada que se pueda adaptar. Investigar también cuando el RAIPA solo lista temas sin actividades.
 
+Permisos: buscar y leer páginas web por cuenta propia no requiere permiso y es obligatorio. Subir archivos o datos del grupo a servicios externos sí requiere permiso del usuario.
+
 ## Fuentes, en orden de prioridad
 1. **Oficiales del grado:** libros Sk'asolil y de Proyectos de telesecundaria (telesecundaria.sep.gob.mx, libros.conaliteg.gob.mx), videos del acervo de Aprende MX, interactivos del repositorio de telesecundaria y materiales de la NEM.
 2. **Instituciones educativas públicas:** Mejoredu, INALI y portales ministeriales de otros países hispanohablantes (Educ.ar, Colombia Aprende, Procomún/INTEF).
@@ -43,6 +45,6 @@ No atribuir cifras de efecto ni afirmaciones de eficacia que no estén en la fue
 Descartar actividades vistosas sin aprendizaje claro, con riesgos de seguridad o que requieren recursos que el grupo no tiene.
 
 ## Registrar y reportar
-- Llenar internamente una [ficha de actividad](../assets/ficha-actividad.md) por cada actividad adoptada.
+- Llenar una [ficha de actividad](../assets/ficha-actividad.md) por cada actividad adoptada y guardarla dentro de `planea/diseno-<proyecto>.md` de la carpeta de trabajo (ver [estado del proyecto](estado-proyecto.md)), no en la skill.
 - En el diseño indicar si la actividad es oficial, adaptada (citar la fuente) o de elaboración propia.
-- Citar autor o institución, título, URL y fecha de consulta.
+- Citar en APA 7, con URL y fecha de consulta, según [materiales existentes](materiales-existentes.md#citar).

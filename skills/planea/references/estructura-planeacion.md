@@ -1,6 +1,8 @@
 # Estructura de la planeación
 
-Estructura de referencia de una planeación terminada. Si el usuario da otra planeación modelo, seguir esa y señalar las diferencias.
+Estructura de referencia de una planeación terminada. Si el usuario da otra planeación modelo, seguir esa y señalar las diferencias. Ejemplo trabajado de filas y celdas: [ejemplo de campo](../assets/ejemplo-campo.md).
+
+Este archivo es la fuente única de las reglas de referencias a anexos, texto sin rojo, ANEXOS 2×2 sin bordes y numeración continua.
 
 ## Orden del documento
 1. Portada → presentación y contextos (áulico, escolar, comunitario) → lista de asistencia.
@@ -71,11 +73,11 @@ Reemplazar las sugerencias del RAIPA por sugerencias propias para el docente (pr
 
 ## Anexos
 - **Numeración continua entre campos:** si Lenguajes termina en el Anexo 16, el siguiente campo empieza en el 17.
-- **Un mismo material conserva su número** aunque se use en varias sesiones o campos.
+- **Un mismo material conserva su número** aunque se use en varias sesiones o campos. El número se asigna una sola vez en `planea/materiales.csv` ([estado del proyecto](estado-proyecto.md)).
 - **Formato:** hojas tituladas «ANEXOS» con una tabla de **2×2 sin bordes visibles** (4 anexos por hoja); la última hoja puede quedar incompleta, con las celdas sobrantes vacías.
 - **Cada celda contiene solo:**
   1. el título en negrita: «**Anexo N** Tipo Título»;
   2. la vista previa real del recurso (primera página, captura o imagen);
-  3. **si es video:** su carátula real y, debajo, la URL completa y clicable.
+  3. **si es video:** su carátula (miniatura real del video) y, debajo, la URL completa y clicable.
 - **Sin instrucciones, créditos ni descripciones** en la celda: el uso va en la sesión, y la fuente y el crédito en la etapa 5 de T3.
 - **Cadena verificable:** sesión → (**Anexo N**) → celda de ANEXOS → archivo en `Recursos/`.

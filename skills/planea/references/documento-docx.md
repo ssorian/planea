@@ -1,19 +1,18 @@
 # Documento DOCX
 
-## Estructura de la planeación
-Seguir [estructura de la planeación](estructura-planeacion.md): orden del documento, qué se conserva, llena o rediseña en cada tabla, filas de sesión y formato de ANEXOS. Insertar las secciones de campo en la posición indicada por el usuario o por `AGENTS.md`.
+Reglas de formato (orden, tablas, fila de sesión, referencias a anexos, sin rojo, ANEXOS 2×2, numeración): [estructura de la planeación](estructura-planeacion.md). Sintaxis: [herramientas](../assets/herramientas/README.md). Trabajar sobre copias en `planea/trabajo/` y dejar el resultado en `salida/`. Insertar las secciones donde indique el usuario o `planea/estado.md`.
 
-## Edición técnica
-Seguir las reglas de DOCX de [herramientas](herramientas.md): leer poco, editar en una copia, preservar el formato a nivel de run, no cambiar la estructura de las tablas, copiar estilos y numeración junto con el contenido y mantener IDs únicos.
+`D="python3 -I <skill>/assets/herramientas/docx_tool.py"`
 
-## Referencias y formato
-- Citar cada recurso en la actividad que lo usa, con referencia directa y el anexo en negrita: «Se verá el video … (**Anexo 7**)». Sin texto en rojo.
-- Heredar la fuente efectiva del párrafo vecino; no imponer tamaños globales.
-- CRONOGRAMA como tabla Word nativa y editable dentro de su celda.
-- ANEXOS: tablas 2×2 sin bordes visibles (bordes `nil`), numeración continua entre campos.
+## Flujo
+1. **Mapear:** `$D mapa raipa.docx --solo-tablas` y `$D tablas … --filas A-B`; leer solo lo necesario.
+2. **Copiar** las tablas del RAIPA a la planeación: `$D copiar plan.docx raipa.docx --desde B --hasta B --antes B -o p1.docx`.
+3. **Filas de sesión:** `$D duplicar-fila p1.docx T3F16 --veces N --vaciar --independientes … -o p2.docx`; ajustar combinaciones con `vmerge`; `borrar-filas` si sobran.
+4. **Editar** con `editar-celdas` (JSON de coordenadas; `**Anexo N**` en negrita). Para ver el formato actual, `leer-celdas`.
+5. **Cronograma:** `tabla-en-celda … T2F4C3 cronograma.json` (tabla nativa en la celda).
+6. **Anexos:** `anexos … anexos.json --antes B` con los números de `planea/materiales.csv`.
+7. **Intocables:** `conservado plan.docx raipa.docx --celdas …` sobre contenidos y PDA; debe dar `OK` en todo.
+8. **Verificar:** `verificar` (comparar con los avisos del original) y `comparar` con el original.
+9. **Revisión visual:** `render plan.docx --dir DIR` y luego `uv run …/pdf_vista.py DIR/plan.pdf`; revisar portada, portadillas y anexos. Código 3: declararla pendiente para el usuario en Word.
 
-## Verificación del documento
-- Reabrir con una biblioteca distinta de la que editó (por ejemplo, python-docx y `zipfile`) y parsear todas las partes XML.
-- Comparar antes y después: tablas, filas, celdas, secciones e imágenes; contenidos y PDA idénticos al RAIPA.
-- Toda relación apunta a un archivo existente; sin medios huérfanos; IDs únicos (comparados con el original).
-- Renderizar si hay LibreOffice; si no, declarar que la revisión visual la hace el usuario en Word.
+Heredar la fuente del párrafo vecino; no imponer tamaños globales. Al cerrar, mover el DOCX final a `salida/` y limpiar `planea/trabajo/`.

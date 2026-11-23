@@ -3,7 +3,7 @@
 ## 1. Analizar el RAIPA del campo
 Extraer y registrar internamente:
 - Títulos del PPA y del proyecto académico, proyectos del libro de Proyectos que integra (puede juntar varios) y producto definitivo.
-- Contenido integrado, subcontenidos, contenidos por disciplina (ESP, ING, ART, LILM, MAT, FIS, etc.) y PDA con su clave.
+- Contenido integrado, subcontenidos, contenidos por disciplina (ESP, ING, ART, LILM, MAT, FIS, etc.; ver [glosario](glosario.md)) y PDA con su clave.
 - Ejes articuladores, estrategias nacionales y vinculación con otros campos.
 - Duración declarada (semanas y horas) y ubicación en el cronograma general. Con celdas combinadas, confirmar fechas con el usuario.
 - Etapas del proyecto académico y qué aporta cada una de verdad. Las etapas habituales son: 1 ¿Qué haremos?, 2 ¡Ese es el problema!, 3 ¡Una propuesta de solución!, 4 Paso a paso, 5 Distintas fuentes de consulta, 6 Unimos las piezas, 7 ¡Ya lo tenemos!, y después Integración (momento 4).
@@ -35,7 +35,7 @@ Criterios del diseño:
 - Ajustes razonables y DUA según el contexto confirmado del grupo; no inventar diagnósticos individuales.
 
 ## 3. Calcular tiempos
-- Derivar las sesiones de la duración declarada y del calendario confirmado (días hábiles, CTE, suspensiones).
+- Derivar las sesiones de la duración declarada y del calendario confirmado en `planea/estado.md` (días hábiles, CTE, suspensiones; ver [estado del proyecto](estado-proyecto.md)).
 - No suponer la duración de la sesión ni cuántas hay por día: preguntar.
 - Comprobar que los tiempos de cada sesión y del proyecto sumen las horas disponibles; reportar diferencias.
 - Marcar como propuesta toda estimación.
@@ -48,3 +48,5 @@ Entregar en el chat, antes de escribir en el DOCX:
 - Incongruencias detectadas y propuesta.
 - Recursos y materiales previstos, con fuente, licencia y si son existentes o de elaboración propia.
 - Preguntas pendientes.
+
+Tras la aprobación, guardar el diseño en `planea/diseno-<proyecto>.md` con la fecha de aprobación y registrar la aprobación en `planea/estado.md` ([estado del proyecto](estado-proyecto.md)).

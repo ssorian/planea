@@ -14,18 +14,17 @@
 Cada proyecto lleva un instrumento final para el producto definitivo y evaluación formativa en al menos dos momentos intermedios. La autoevaluación complementa, no sustituye, el instrumento final.
 
 ## Reglas comunes
-- Partir de los PDA: cada criterio cita el PDA que valora y todo PDA del proyecto aparece en algún instrumento.
+- Partir de los PDA: cada criterio cita el PDA que valora y todo PDA del proyecto aparece en algún instrumento. Cada criterio o reactivo respeta el nivel de Bloom del PDA ([metodologías](metodologias.md)).
 - Criterios observables y medibles, redactados sobre el producto o la conducta, no sobre la persona.
 - Lenguaje comprensible para el alumnado; entregar el instrumento antes de la tarea.
 - Incluir espacio para retroalimentación y campos de registro vacíos (nombre, fecha, puntaje). No llenar calificaciones ni desempeños.
 - Si se propone una ponderación o escala, marcarla como propuesta y verificar que sume el total. Usar la escala de calificación vigente que confirme el docente.
 
 ## Rúbrica analítica
-- De 3 a 5 criterios. Cada criterio evalúa una sola dimensión.
+- De 3 a 5 criterios; cada criterio evalúa una sola dimensión.
 - 4 niveles con nombres descriptivos y sin juicios sobre la persona: Destacado, Satisfactorio, En proceso, Requiere apoyo.
-- Descriptores paralelos: el mismo aspecto cambia de calidad entre niveles. Evitar diferencias solo de cantidad («pocas», «algunas», «muchas») salvo que la cantidad sea el criterio.
-- El nivel Satisfactorio describe el logro del PDA. Destacado lo supera; En proceso y Requiere apoyo describen qué falta.
-- No usar «bueno», «regular» o «malo» como descriptor.
+- Descriptores paralelos: el mismo aspecto cambia de calidad entre niveles. Evitar diferencias solo de cantidad («pocas», «algunas», «muchas») salvo que la cantidad sea el criterio. No usar «bueno», «regular» o «malo».
+- Satisfactorio describe el logro del PDA. Destacado lo supera; En proceso y Requiere apoyo describen qué falta.
 - Verificar con un producto ejemplo que dos evaluadores llegarían al mismo nivel.
 
 ## Lista de cotejo
@@ -39,7 +38,7 @@ Cada proyecto lleva un instrumento final para el producto definitivo y evaluaci�
 - Definir qué significa cada valor.
 
 ## Examen
-1. **Tabla de especificaciones:** filas con contenido o PDA, columnas con nivel de Bloom y número de reactivos. Incluir reactivos de niveles 3 o más; no limitarse a recordar.
+1. **Tabla de especificaciones:** filas con contenido o PDA, columnas con nivel de Bloom y número de reactivos. Al menos un reactivo en el nivel de cada PDA; los de niveles inferiores solo como andamiaje; no limitarse a recordar (regla en [metodologías](metodologias.md)).
 2. **Tipos de reactivo:** opción múltiple, relación de columnas, completamiento, respuesta breve, problema y respuesta abierta con criterio de corrección.
 3. **Reglas de opción múltiple:**
    - una base clara que se entienda sin leer las opciones;
@@ -55,6 +54,9 @@ Cada proyecto lleva un instrumento final para el producto definitivo y evaluaci�
 - De 4 a 6 afirmaciones en primera persona ligadas a los criterios del instrumento final.
 - Incluir una pregunta de metacognición: ¿qué hice bien?, ¿qué mejoraré?, ¿cómo?
 - En la coevaluación, usar un formato de retroalimentación constructiva (un logro, una sugerencia).
+
+## Ejemplos
+Rúbrica, lista de cotejo y tabla de especificaciones trabajadas: [ejemplo de campo](../assets/ejemplo-campo.md).
 
 ## Producción
 Diseñar los instrumentos en HTML según [diseño de recursos](diseno-recursos.md) y convertirlos a PDF; no como imágenes generadas: el texto debe ser exacto y editable en su fuente. Insertar la vista previa en ANEXOS y citarlo en la sesión donde se aplica.

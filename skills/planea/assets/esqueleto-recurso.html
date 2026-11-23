@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- Base técnica de un recurso impreso (no visual). Sin identidad visual ni contenido real:
+     ajustar los tokens al tema del proyecto y reemplazar los [corchetes]. Convertir a PDF según references/diseno-recursos.md. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>[Título del recurso]</title>
+<style>
+  :root {
+    /* Tokens: ajustar al tema. Texto/fondo con contraste de 4.5:1 o más. */
+    --color-texto: #1d1d2b;
+    --color-fondo: #ffffff;
+    --color-acento: #2f6fdb;
+    --color-borde: #6b6b74;
+    /* Pila con respaldo del sistema; anteponer una fuente nombrada solo si está instalada o se permite incrustarla. */
+    --fuente-titulo: system-ui, "Segoe UI", Arial, sans-serif;
+    --fuente-texto: system-ui, "Segoe UI", Arial, sans-serif;
+  }
+  @page { size: letter; margin: 15mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--color-texto);
+    background: var(--color-fondo);
+    font-family: var(--fuente-texto);
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+  h1, h2 { font-family: var(--fuente-titulo); margin: 0 0 3mm; }
+  h1 { font-size: 20pt; }
+  h2 { font-size: 14pt; }
+  .encabezado { border-bottom: 1.5pt solid var(--color-acento); padding-bottom: 3mm; margin-bottom: 5mm; }
+  .datos { display: flex; gap: 8mm; margin-top: 3mm; font-size: 10pt; }
+  .datos span { flex: 1; border-bottom: 0.5pt solid var(--color-borde); min-height: 7mm; }
+  .consigna { font-weight: 700; margin-bottom: 4mm; }
+  .contenido > * { break-inside: avoid; }
+  .bloque { border: 0.75pt solid var(--color-borde); padding: 3mm; margin-bottom: 4mm; break-inside: avoid; }
+  .respuesta { border-bottom: 0.5pt solid var(--color-borde); height: 8mm; }
+  .pie { margin-top: 6mm; font-size: 9pt; }
+</style>
+</head>
+<body>
+  <header class="encabezado">
+    <h1>[Título del recurso]</h1>
+    <div>[Anexo N · campo · grado]</div>
+    <div class="datos"><span>Nombre:</span><span>Fecha:</span></div>
+  </header>
+
+  <main class="contenido">
+    <p class="consigna">[Consigna en infinitivo, breve.]</p>
+    <section class="bloque">
+      <h2>[Subtítulo]</h2>
+      <p>[Contenido o tarea.]</p>
+      <div class="respuesta"></div>
+      <div class="respuesta"></div>
+    </section>
+  </main>
+
+  <footer class="pie">Fuente: [cita APA 7 con URL y fecha de consulta, o «Elaboración propia con apoyo de IA»].</footer>
+</body>
+</html>

@@ -42,10 +42,7 @@ Combinar o adaptar mecánicas está permitido; inventar reglas complejas no. Usa
 ## 4. Diseño visual
 Tomar como base uno de los [estilos visuales de referencia](estilos-visuales.md) (bloques de respuesta, ruleta de categorías, gamificado amable, arcade de personajes, tarjetas temáticas) y aplicar estas reglas:
 - **Una idea por pantalla o tarjeta;** poco texto y palabras clave en lugar de párrafos.
-- **Legible de lejos:**
-  - proyectado: preguntas de 48 px o más, títulos de 64 px o más;
-  - impreso para todo el grupo: 28 pt o más;
-  - tarjetas individuales: 18 pt o más.
+- **Legible de lejos:** tamaños mínimos para proyección, lámina de grupo y tarjetas según [diseño de recursos](diseno-recursos.md) §3 (fuente única).
 - **Alto contraste** y paleta reducida: 1 color de acento y colores fijos para las opciones.
 - **Nunca solo color:** cada opción lleva color, letra y figura (A rojo triángulo, B azul círculo, C amarillo cuadrado, D verde rombo).
 - **Íconos e imágenes que expliquen,** no que decoren: diagramas, fotos reales o ilustraciones pertinentes.
@@ -68,9 +65,9 @@ Solo con el diseño aprobado. Comandos en [herramientas](herramientas.md); la pr
 1. Crear el proyecto en `Recursos/juegos/<nombre>/` del proyecto didáctico: `npm create vite@latest <nombre> -- --template react-ts`; añadir `vite-plugin-singlefile` para que el build sea un solo HTML que funcione con doble clic y sin internet.
 2. Separar los datos (preguntas, respuestas, puntos) en un JSON y validarlos al construir; la lógica no contiene contenido curricular.
 3. Controles por teclado y ratón; atajos visibles en una pantalla de ayuda; pantalla completa.
-4. Sin recursos externos: fuentes del sistema, imágenes locales incrustadas, sin sonidos con derechos.
+4. Sin recursos externos: tipografías como pila con respaldo del sistema (fuente nombrada solo si está instalada o el usuario permite incrustar un archivo local con licencia libre; ver [diseño de recursos](diseno-recursos.md) §2), imágenes locales incrustadas, sin sonidos con derechos.
 5. Construir, abrir el HTML con Playwright y capturar cada estado del juego (ver [herramientas](herramientas.md)); revisar las capturas de cada estado del juego; buscar en el HTML que no haya URL externas.
-6. Guardar el HTML final en `Recursos/` y la captura real de la pantalla principal como vista previa en ANEXOS.
+6. Guardar el HTML final en `Recursos/juegos/<nombre>/` y la captura real de la pantalla principal como vista previa en ANEXOS.
 
 ## 7. Ficha del juego (para el diseño)
-Presentar cada juego con: nombre propio, PDA y nivel de Bloom, momento de la sesión, mecánica y reglas en 3–5 pasos, organización, material, tiempo, retroalimentación prevista, variantes DUA, alternativa sin proyector y lista de preguntas con su respuesta verificada.
+Presentar cada juego con (ficha llena en el [ejemplo de campo](../assets/ejemplo-campo.md)): nombre propio, PDA y nivel de Bloom, momento de la sesión, mecánica y reglas en 3–5 pasos, organización, material, tiempo, retroalimentación prevista, variantes DUA, alternativa sin proyector y lista de preguntas con su respuesta verificada.

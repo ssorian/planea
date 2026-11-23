@@ -1,37 +1,41 @@
 # Herramientas
 
-La skill no trae código. Solo se necesitan **Node.js** (`npx`) y **uv** (`uvx`, `uv run --with`): con ellos se ejecuta al momento todo lo demás, sin instalaciones globales. Antes de usar una herramienta, comprobar qué hay (`command -v node uv`). La primera ejecución descarga paquetes (y Playwright descarga su Chromium con `uvx playwright install chromium`): pedir permiso si el entorno o el usuario lo exigen. Escribir los scripts auxiliares en una carpeta temporal o en `Recursos/fuente/`, nunca dentro de la skill.
+La skill trae sus herramientas en `assets/herramientas/` (ver [README](../assets/herramientas/README.md) para la sintaxis completa). Solo usan la biblioteca estándar de Python 3.9+, salvo `pdf_vista.py`. Invocar siempre con `-I`: `python3 -I <skill>/assets/herramientas/<script>.py …` (Windows: `py -I` o `python -I`). Comprobar antes qué hay: `command -v python3 uv`.
 
-## Elegir la herramienta
-| Tarea | Comando o herramienta (vía uv o Node) | Alternativa si ya existe en el equipo |
-| --- | --- | --- |
-| Leer un DOCX con pocos tokens | `uvx --from 'markitdown[docx]' markitdown archivo.docx` (Markdown con tablas) | `pandoc -t markdown` |
-| Mapear tablas y celdas | Script con python-docx (`uv run --with python-docx python mapa.py`): una línea por celda única (`T2 F3 C1 "texto…"`) | `zipfile` + lectura de XML |
-| Editar texto, celdas y tablas | python-docx: `uv run --with python-docx python script.py` | lxml para lo que python-docx no cubre (`--with lxml`) |
-| Copiar tablas o secciones entre documentos (con estilos, numeración e imágenes) | docxcompose: `uv run --with docxcompose python script.py` | python-docx + copia manual de relaciones, estilos y numeración |
-| Validar un DOCX | Reabrir con python-docx y con `zipfile`; comparar conteos antes y después | LibreOffice (`soffice --headless --convert-to pdf`) para renderizar |
-| Recurso HTML → PDF | Playwright con uv: `uv run --with playwright python a_pdf.py`, con `page.pdf(path=…, prefer_css_page_size=True, print_background=True)` | Chromium, Chrome o Edge del sistema: `--headless --no-pdf-header-footer --print-to-pdf=salida.pdf recurso.html`; o `npx playwright pdf` (usa `--paper-format`, no el `@page`) |
-| Recurso React → PDF | Renderizar a HTML estático con `react-dom/server` (`npx tsx render.tsx`, con React instalado en `Recursos/fuente/`) y convertir el HTML | Construir con Vite y convertir el resultado |
-| Vista previa y conteo de páginas | PyMuPDF: `uv run --with pymupdf python vista.py` (`page.get_pixmap(dpi=110).save(…)`, `len(doc)`) | Poppler: `pdftoppm -png -r 110` y `pdfinfo` |
-| Captura de un juego o una pantalla | Playwright: `page.screenshot(path=…)` en cada estado | `npx playwright screenshot <url> captura.png` |
-| Juego proyectado | `npm create vite@latest <nombre> -- --template react-ts`, `vite-plugin-singlefile` y `npx vite build` | HTML único escrito a mano |
-| Ilustraciones | Generación de imágenes del agente (`openai_image` u otra) | Materiales existentes con licencia |
-| Investigación | Búsqueda web y lectura de páginas del agente | Solo fuentes locales si no hay red |
+## Tarea → comando
+`D="python3 -I <skill>/assets/herramientas/docx_tool.py"`
 
-En Windows: `uv run` y `npx` funcionan igual. Para scripts Python, `uv run` elige el intérprete; no hace falta `py` ni `python3`.
+| Tarea | Comando |
+| --- | --- |
+| Resumen del DOCX | `$D info a.docx` |
+| Mapear estructura (pocos tokens) | `$D mapa a.docx --solo-tablas`; `$D tablas a.docx --tabla N --filas A-B` |
+| Leer celdas, texto o buscar | `$D leer-celdas a.docx T3F16C2` · `$D texto a.docx --desde B` · `$D buscar a.docx "patrón"` |
+| Editar celdas (con `**negrita**`) | `$D editar-celdas a.docx cambios.json -o b.docx`; `$D reemplazar …` |
+| Copiar tablas o bloques entre DOCX | `$D copiar destino.docx origen.docx --desde B --hasta B --antes B -o s.docx` |
+| Filas de sesión | `$D duplicar-fila …`, `$D borrar-filas …`, `$D vmerge …` |
+| Cronograma nativo | `$D tabla-en-celda a.docx T2F4C3 datos.json -o b.docx` |
+| Hojas de ANEXOS | `$D anexos a.docx anexos.json --antes B -o b.docx` |
+| Comprobar texto intocable | `$D conservado destino.docx origen.docx --celdas …` |
+| Integridad y diferencias | `$D verificar a.docx` · `$D comparar a.docx b.docx` |
+| Revisión visual del DOCX | `$D render a.docx --dir DIR` (código 3: sin renderizador) |
+| Recurso HTML → PDF | `python3 -I …/html_a_pdf.py recurso.html salida.pdf` (Edge, Chrome o Chromium del sistema; código 3 si no hay) |
+| Vista previa y páginas de un PDF | `uv run …/pdf_vista.py archivo.pdf --dir DIR` (PyMuPDF); sin uv, Poppler con `python3 -I …/pdf_vista.py` |
+| Ilustraciones | Generación de imágenes del agente, o materiales existentes con licencia |
+| Investigación | Búsqueda web y lectura de páginas; solo fuentes locales si no hay red |
+
+## Alternativas (solo si hacen falta, con permiso para descargar)
+- `markitdown`, `pandoc` o `python-docx` (`uvx` / `uv run --with`) para lo que `docx_tool.py` no cubra.
+- Playwright (`uv run --with playwright`) si no hay navegador del sistema o hace falta capturar un juego.
+- **Juego proyectado:** HTML único por defecto. Vite + React solo si el juego lo necesita y con permiso; requiere Node.js.
 
 ## Reglas para DOCX
-- **Leer poco:** mapear primero la estructura y luego leer solo los rangos necesarios. No volcar el XML ni el documento completo al contexto.
-- **Editar en una copia;** nunca sobrescribir originales ni la planeación modelo. Si hay un archivo de bloqueo (`.~lock.*#`, `~$*`), pedir cerrar el documento.
-- **Preservar el formato a nivel de run:** escribir en el primer run de cada párrafo y vaciar los demás; no usar `cell.text = …` cuando el formato importa.
-- **Celdas combinadas:** deduplicarlas por identidad (`cell._tc`); python-docx devuelve la misma celda varias veces.
-- **No cambiar la estructura** al editar contenido: filas, columnas, `gridSpan`, `vMerge`, anchos y bordes. Comparar los conteos antes y después.
-- **Copiar entre documentos:** usar docxcompose o copiar también las relaciones (imágenes, enlaces), los estilos que falten y las definiciones de numeración (`w:num` + `w:abstractNum`, con IDs nuevos sin colisión). Sin numeración, las listas copiadas se rompen.
-- **IDs únicos:** `w14:paraId`, `w14:textId`, `wp:docPr@id` y marcadores. Comparar con el original, que puede traer duplicados propios.
-- **Sin bibliotecas:** si no hay python-docx ni red, usar `zipfile` y empalmar texto sobre `word/document.xml`. No reserializar con ElementTree: renombra prefijos y rompe `mc:Ignorable`.
-- **Revisión visual:** sin renderizador, declararla pendiente para el usuario en Word.
+- **Copia de trabajo** en `planea/trabajo/`; salida en `salida/`. Nunca sobrescribir originales ni la planeación modelo.
+- Si hay archivo de bloqueo (`.~lock.*#`, `~$*`), pedir cerrar el documento.
+- **No cambiar la estructura** al editar contenido, salvo con los comandos de filas y tablas; confirmar con `comparar`.
+- **IDs únicos:** `verificar` los revisa; comparar con el original, que puede traer duplicados propios.
+- Sin renderizador (`render` devuelve 3): la revisión visual queda pendiente para el usuario en Word.
 
 ## Reglas para PDF
 - Convertir solo recursos terminados; corregir en la fuente y volver a convertir; nunca editar el PDF.
-- Revisar siempre las vistas previas página por página (ver [diseño de recursos](diseno-recursos.md)).
+- Revisar las vistas previas página por página ([diseño de recursos](diseno-recursos.md)).
 - Recursos sin dependencias de red: fuentes del sistema o incrustadas e imágenes locales.

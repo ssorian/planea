@@ -13,7 +13,7 @@ Usar el formato de sesión de la planeación modelo si existe; esta plantilla fi
 | Cierre | | | | | |
 
 - Evaluación formativa: [criterio, instrumento, momento]
-- DUA: representación [..] · expresión [..] · implicación [..]
+- DUA: al menos dos formas de representación; al menos una opción de expresión, y dos cuando el producto lo permita ([regla](../references/metodologias.md#dua-y-ajustes-razonables)). Representación [..] · expresión [..] · implicación [..]
 - Ajustes razonables: [solo con información confirmada]
 - Alternativa sin internet o sin video: [..]
 
