@@ -32,7 +32,7 @@ Copiar la carpeta `skills/planea` a la carpeta de skills del agente:
 | Codex (CLI, app e IDE) | `~/.agents/skills/` (personal) o `.agents/skills/` en la raíz del repositorio (proyecto) |
 | Otros | `~/.agents/skills/` o la que indique el agente |
 
-Pi también lee `~/.agents/skills/`: si usas Pi y Codex, instala solo ahí para no tener la skill duplicada. En Codex, reinicia la sesión tras instalar; se invoca sola por su descripción o con `$planea`.
+Pi también lee `~/.agents/skills/`: si usas Pi y Codex, instala solo ahí para no tener la skill duplicada. En Codex, abre una sesión nueva tras instalar para que la detecte.
 
 ```bash
 git clone https://github.com/ssorian/planea.git
