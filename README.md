@@ -13,6 +13,7 @@ Son solo instrucciones y guías: no trae código, plantillas ni estilos fijos. L
   - estándar de layout (lo obligatorio, lo recomendado y lo libre) y una identidad visual propia para cada proyecto;
   - estructura de cada tipo de recurso;
   - al terminar, conversión a PDF y revisión de las vistas previas.
+- **Estilos visuales de referencia:** cinco estilos lúdicos (bloques de respuesta, ruleta de categorías, gamificado amable, arcade de personajes y tarjetas temáticas), con layout, tokens propios y usos, inspirados en juegos educativos web sin copiar sus marcas.
 - **Diseño de juegos didácticos:** mecánicas sencillas, reglas didácticas y diseño muy visual; impresos, corporales o proyectados.
 - **Edición de la planeación en Word**, con reglas para conservar formato, estilos, numeración e imágenes.
 
@@ -67,6 +68,7 @@ skills/planea/
 │   ├── diseno-proyecto.md · metodologias.md · construccion-sesiones.md
 │   ├── investigacion-actividades.md · materiales-existentes.md
 │   ├── instrumentos-evaluacion.md · diseno-recursos.md · juegos-didacticos.md
+│   ├── estilos-visuales.md
 │   └── documento-docx.md · herramientas.md
 └── assets/           # plantillas de registro y lista de verificación (texto)
 ```

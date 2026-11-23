@@ -34,6 +34,7 @@ Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividad
 | Rúbrica, lista de cotejo, escala, examen | [instrumentos](references/instrumentos-evaluacion.md) |
 | Diseñar recursos (layout, visual) y pasarlos a PDF | [diseño de recursos](references/diseno-recursos.md) |
 | Diseñar juegos de repaso o activación | [juegos](references/juegos-didacticos.md) |
+| Elegir estilo visual, layout y tokens | [estilos visuales](references/estilos-visuales.md) |
 | Leer o escribir la planeación DOCX | [documento DOCX](references/documento-docx.md) + [herramientas](references/herramientas.md) |
 | Elegir herramienta o comando | [herramientas](references/herramientas.md) |
 | Falta reparto de horas o dato del contexto | Preguntar; no suponer. |
@@ -52,5 +53,5 @@ Diseño: tabla de sesiones, cobertura PDA → sesión → criterio, cambios al R
 
 ## References
 - [Diseño](references/diseno-proyecto.md) · [Metodologías](references/metodologias.md) · [Sesiones](references/construccion-sesiones.md) · [Investigación](references/investigacion-actividades.md) · [Materiales](references/materiales-existentes.md)
-- [Instrumentos](references/instrumentos-evaluacion.md) · [Diseño de recursos](references/diseno-recursos.md) · [Juegos](references/juegos-didacticos.md) · [DOCX](references/documento-docx.md) · [Herramientas](references/herramientas.md)
+- [Instrumentos](references/instrumentos-evaluacion.md) · [Diseño de recursos](references/diseno-recursos.md) · [Juegos](references/juegos-didacticos.md) · [Estilos visuales](references/estilos-visuales.md) · [DOCX](references/documento-docx.md) · [Herramientas](references/herramientas.md)
 - Assets: [plantilla de sesión](assets/plantilla-sesion.md), [ficha de actividad](assets/ficha-actividad.md), [catálogo](assets/catalogo-materiales.csv), [lista](assets/lista-verificacion.md)

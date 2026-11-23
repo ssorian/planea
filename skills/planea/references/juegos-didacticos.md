@@ -40,6 +40,7 @@ Combinar o adaptar mecánicas está permitido; inventar reglas complejas no. Usa
 - **DUA:** apoyo visual y oral en cada pregunta, tiempo suficiente y roles que no dependan solo de la lectura.
 
 ## 4. Diseño visual
+Tomar como base uno de los [estilos visuales de referencia](estilos-visuales.md) (bloques de respuesta, ruleta de categorías, gamificado amable, arcade de personajes, tarjetas temáticas) y aplicar estas reglas:
 - **Una idea por pantalla o tarjeta;** poco texto y palabras clave en lugar de párrafos.
 - **Legible de lejos:**
   - proyectado: preguntas de 48 px o más, títulos de 64 px o más;

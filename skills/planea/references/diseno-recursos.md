@@ -21,7 +21,7 @@ Antes de crear el primer recurso de un proyecto, proponer en el diseño una iden
 - **Motivo gráfico:** un elemento que dé unidad (ilustración, forma, textura, ícono, borde).
 - **Tono de las ilustraciones:** coherente en todo el proyecto.
 
-La identidad cambia entre proyectos y campos; no reutilizar la misma por inercia. Si el usuario da una identidad o una plantilla, seguirla.
+Partir de uno de los [estilos visuales de referencia](estilos-visuales.md) y adaptarlo al tema. La identidad cambia entre proyectos y campos; no reutilizar la misma por inercia. Si el usuario da una identidad o una plantilla, seguirla.
 
 ## 3. Estándar de layout
 | Nivel | Reglas |
