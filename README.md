@@ -15,6 +15,7 @@ Son solo instrucciones y guías: no trae código, plantillas ni estilos fijos. L
   - al terminar, conversión a PDF y revisión de las vistas previas.
 - **Estilos visuales de referencia:** cinco estilos lúdicos (bloques de respuesta, ruleta de categorías, gamificado amable, arcade de personajes y tarjetas temáticas), con layout, tokens propios y usos, inspirados en juegos educativos web sin copiar sus marcas.
 - **Diseño de juegos didácticos:** mecánicas sencillas, reglas didácticas y diseño muy visual; impresos, corporales o proyectados.
+- **Estructura de la planeación:** qué se conserva, llena o rediseña en cada tabla del RAIPA, una fila por sesión, referencias directas a anexos y ANEXOS en tablas 2×2 sin bordes.
 - **Edición de la planeación en Word**, con reglas para conservar formato, estilos, numeración e imágenes.
 
 Contenidos, subcontenidos y PDA del RAIPA nunca se modifican. Todo lo demás se rediseña y se presenta para aprobación antes de producirlo.
@@ -67,7 +68,7 @@ skills/planea/
 │   ├── investigacion-actividades.md · materiales-existentes.md
 │   ├── instrumentos-evaluacion.md · diseno-recursos.md · juegos-didacticos.md
 │   ├── estilos-visuales.md
-│   └── documento-docx.md · herramientas.md
+│   └── estructura-planeacion.md · documento-docx.md · herramientas.md
 └── assets/           # plantillas de registro y lista de verificación (texto)
 ```
 

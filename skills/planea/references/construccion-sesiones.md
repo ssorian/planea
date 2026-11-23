@@ -32,7 +32,7 @@ Los porcentajes son guías; ajustarlos al propósito y declarar los tiempos en m
 - Una sesión, un propósito principal, ligado a uno o más PDA.
 - Escribir lo que hace el alumnado, no solo lo que hace el docente.
 - Cada actividad indica organización (individual, parejas, equipos, plenaria), material o anexo, producto o evidencia y tiempo.
-- Las consignas para el alumnado van en infinitivo, de 1 a 3 frases, y citan el anexo correspondiente.
+- Cada recurso se cita en el momento exacto en que se usa, con referencia directa y el anexo en negrita: «Se procederá a jugar un minijuego (**Anexo 2**)», «Se verá un video (**Anexo 7**)». Formato de la fila de sesión en [estructura](estructura-planeacion.md).
 - Incluir práctica de recuperación y práctica espaciada: retomar brevemente lo de sesiones anteriores.
 - Recursos propios de telesecundaria: video o programa del acervo, libro de texto, interactivo y trabajo en comunidad. Prever una alternativa sin internet o sin video.
 - Toda actividad nueva debe caber en el tiempo. Si no cabe, quitar otra o proponer la fusión.

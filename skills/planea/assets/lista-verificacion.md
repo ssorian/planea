@@ -23,9 +23,10 @@ Marcar aprobado, pendiente o no aplica. Pendiente no es aprobado. En correccione
 
 ## Documento
 - [ ] Secciones en la posición y el formato de la planeación modelo.
-- [ ] Consignas en infinitivo, rojo #C00000, anexo en negrita.
+- [ ] Cada recurso citado en la actividad que lo usa con referencia directa y «Anexo N» en negrita; sin texto en rojo.
 - [ ] CRONOGRAMA como tabla nativa editable.
-- [ ] ANEXOS 2×2, máximo cuatro por hoja, solo título y vista previa (más URL en videos).
+- [ ] ANEXOS al final, tablas 2×2 sin bordes visibles, numeración continua entre campos; cada celda solo con título, vista previa y, en videos, carátula real y URL completa.
+- [ ] T1–T5 según la estructura: lo del RAIPA conservado, datos llenados, Momento 4 y sugerencias reemplazados, una fila por sesión y por fuente en T3.
 - [ ] Cada anexo está citado en una consigna y cada consigna apunta a un anexo existente.
 - [ ] DOCX reabierto con otra biblioteca; conteos antes/después sin cambios estructurales no previstos; relaciones e IDs válidos.
 - [ ] Portada y portadillas caben en su hoja (renderizado o revisión pendiente del usuario).
