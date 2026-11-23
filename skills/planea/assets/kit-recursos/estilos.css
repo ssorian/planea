@@ -1,0 +1,44 @@
+/* Estilos base de impresión. Paleta sobria, alto contraste, mucho espacio libre. */
+:root {
+  --tinta: #1f2933;
+  --suave: #52606d;
+  --linea: #9aa5b1;
+  --fondo: #f5f7fa;
+  --acento: #2f6f73;
+  --acento-claro: #e3f1f1;
+  --rojo: #c00000;
+  font-family: "Adwaita Sans", "Carlito", "DejaVu Sans", sans-serif;
+  color: var(--tinta);
+  font-size: 11.5pt;
+  line-height: 1.35;
+}
+@page { size: var(--pagina, letter); margin: 16mm 16mm 18mm 16mm; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; }
+.hoja { break-after: page; }
+.hoja:last-child { break-after: auto; }
+.encabezado { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--acento); padding-bottom: 4mm; margin-bottom: 5mm; }
+.encabezado h1 { font-size: 18pt; margin: 0; color: var(--acento); }
+.encabezado .meta { font-size: 9.5pt; color: var(--suave); text-align: right; }
+.campos-alumno { display: grid; grid-template-columns: 3fr 1fr 1fr; gap: 4mm; margin-bottom: 5mm; font-size: 10pt; }
+.campos-alumno div { border-bottom: 1px solid var(--linea); padding-top: 5mm; }
+.consigna { background: var(--acento-claro); border-left: 4px solid var(--acento); padding: 3mm 4mm; margin: 0 0 5mm; }
+h2 { font-size: 13pt; color: var(--acento); margin: 6mm 0 3mm; }
+table { width: calc(100% - 1px); border-collapse: collapse; margin-bottom: 4mm; }
+th, td { border: 1px solid var(--linea); padding: 2.2mm 2.5mm; vertical-align: top; text-align: left; font-size: 10pt; }
+th { background: var(--fondo); font-weight: 700; }
+tr { break-inside: avoid; }
+.criterio { font-weight: 700; }
+.pda { display: block; font-weight: 400; font-size: 8.5pt; color: var(--suave); margin-top: 1mm; }
+.casilla { width: 14mm; text-align: center; }
+.reactivo { break-inside: avoid; margin-bottom: 5mm; }
+.reactivo .base { margin-bottom: 2mm; }
+.opciones { list-style: none; padding-left: 6mm; margin: 0; }
+.opciones li { margin-bottom: 1.2mm; }
+.renglones div { border-bottom: 1px solid var(--linea); height: 8mm; }
+.retro { border: 1px dashed var(--linea); min-height: 22mm; padding: 2mm 3mm; font-size: 9.5pt; color: var(--suave); }
+.credito { margin-top: 6mm; font-size: 8pt; color: var(--suave); }
+.ficha p { margin: 0 0 3mm; }
+.ficha figure { margin: 3mm 0; text-align: center; }
+.ficha figure img { max-width: 100%; max-height: 80mm; }
+.ficha figcaption { font-size: 8.5pt; color: var(--suave); }

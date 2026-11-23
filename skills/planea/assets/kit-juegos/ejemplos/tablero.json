@@ -1,0 +1,39 @@
+{
+  "ejemplo": true,
+  "titulo": "Tablero de categorías",
+  "equipos": ["Equipo 1", "Equipo 2", "Equipo 3"],
+  "categorias": [
+    {
+      "nombre": "Números",
+      "preguntas": [
+        { "valor": 100, "pregunta": "¿Cuánto es 9 + 6?", "respuesta": "15" },
+        { "valor": 200, "pregunta": "¿Cuánto es la mitad de 36?", "respuesta": "18" },
+        { "valor": 300, "pregunta": "¿Cuál es el siguiente número primo después de 7?", "respuesta": "11" }
+      ]
+    },
+    {
+      "nombre": "Figuras",
+      "preguntas": [
+        { "valor": 100, "pregunta": "¿Cuántos lados tiene un triángulo?", "respuesta": "Tres" },
+        { "valor": 200, "pregunta": "¿Cómo se llama el cuadrilátero con cuatro lados iguales y cuatro ángulos rectos?", "respuesta": "Cuadrado" },
+        { "valor": 300, "pregunta": "¿Cuántos grados suman los ángulos interiores de un triángulo?", "respuesta": "180°" }
+      ]
+    },
+    {
+      "nombre": "Palabras",
+      "preguntas": [
+        { "valor": 100, "pregunta": "Da un sinónimo de «grande».", "respuesta": "Por ejemplo: enorme, amplio" },
+        { "valor": 200, "pregunta": "¿Cuántas sílabas tiene la palabra «escuela»?", "respuesta": "Tres: es-cue-la" },
+        { "valor": 300, "pregunta": "Escribe una oración que use la palabra «aunque».", "respuesta": "Respuesta abierta: valorar que la oración tenga sentido" }
+      ]
+    },
+    {
+      "nombre": "Ciencia",
+      "preguntas": [
+        { "valor": 100, "pregunta": "¿En qué estado de la materia está el hielo?", "respuesta": "Sólido" },
+        { "valor": 200, "pregunta": "¿Qué gas necesitan las plantas para hacer la fotosíntesis?", "respuesta": "Dióxido de carbono" },
+        { "valor": 300, "pregunta": "¿Cómo se llama el paso de líquido a gas?", "respuesta": "Evaporación" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "ejemplo": true,
+  "titulo": "La comunidad opina",
+  "equipos": ["Equipo Norte", "Equipo Sur"],
+  "rondas": [
+    {
+      "pregunta": "Nombra algo que se lleva a la escuela en la mochila",
+      "respuestas": [
+        { "texto": "Cuaderno", "puntos": 38 },
+        { "texto": "Lápiz o pluma", "puntos": 24 },
+        { "texto": "Libro de texto", "puntos": 17 },
+        { "texto": "Colores o plumones", "puntos": 11 },
+        { "texto": "Botella de agua", "puntos": 6 }
+      ]
+    },
+    {
+      "pregunta": "Menciona un lugar de la escuela donde se juega en el recreo",
+      "multiplicador": 2,
+      "respuestas": [
+        { "texto": "Cancha", "puntos": 40 },
+        { "texto": "Patio", "puntos": 25 },
+        { "texto": "Pasillo", "puntos": 12 },
+        { "texto": "Tienda escolar", "puntos": 10 },
+        { "texto": "Jardín", "puntos": 8 },
+        { "texto": "Biblioteca", "puntos": 5 }
+      ]
+    }
+  ]
+}

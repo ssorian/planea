@@ -1,0 +1,73 @@
+name: Pruebas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  instalar-y-probar:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar (Linux/macOS)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          ./install.sh --destino "$RUNNER_TEMP/skills"
+          test -f "$RUNNER_TEMP/skills/planea/SKILL.md"
+          echo "SKILL_DIR=$RUNNER_TEMP/skills/planea" >> "$GITHUB_ENV"
+
+      - name: Instalar (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          ./install.ps1 -Destino "$env:RUNNER_TEMP\skills"
+          if (-not (Test-Path "$env:RUNNER_TEMP\skills\planea\SKILL.md")) { throw "Falta SKILL.md" }
+          "SKILL_DIR=$env:RUNNER_TEMP\skills\planea" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Kit PDF
+        shell: bash
+        run: |
+          cd "$SKILL_DIR/assets/kit-recursos"
+          salida="$(bun render.tsx ejemplos/rubrica-ejemplo.tsx "$RUNNER_TEMP/pdf" --png)"
+          echo "$salida"
+          echo "$salida" | grep -q '"paginas":2'
+
+      - name: Kit de juegos
+        shell: bash
+        run: |
+          cd "$SKILL_DIR/assets/kit-juegos"
+          for juego in encuesta tarjetas tablero ruleta; do
+            bun construir.ts "$juego" "ejemplos/$juego.json" "$RUNNER_TEMP/juegos/$juego.html"
+            test -s "$RUNNER_TEMP/juegos/$juego.html"
+          done
+
+      - name: docx_tool
+        shell: bash
+        run: |
+          python -I "$SKILL_DIR/assets/herramientas-docx/docx_tool.py" --help
+
+      - name: Desinstalar (Linux/macOS)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          ./install.sh --destino "$RUNNER_TEMP/skills" --desinstalar
+          test ! -e "$RUNNER_TEMP/skills/planea"
+
+      - name: Desinstalar (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          ./install.ps1 -Destino "$env:RUNNER_TEMP\skills" -Desinstalar
+          if (Test-Path "$env:RUNNER_TEMP\skills\planea") { throw "No se desinstaló" }
