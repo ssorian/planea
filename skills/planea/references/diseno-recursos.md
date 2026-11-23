@@ -64,4 +64,6 @@ Cuando el recurso esté terminado:
    - imágenes nítidas;
    - nada partido entre páginas.
 3. Corregir en la fuente y volver a convertir; nunca editar el PDF.
+   - Si se pasa de página por poco: acortar la consigna, poner registro y retroalimentación lado a lado, márgenes de 11–13 mm, tablas a 9.5 pt (nunca menos de 9 pt). Si se pasa mucho, dividir en hojas completas por sección; no dejar un bloque solo en una página.
+   - Mover reactivos o bloques enteros entre hojas en lugar de dejar huecos grandes.
 4. Entregar el PDF en `Recursos/` y usar el PNG de la primera página como vista previa en ANEXOS.
