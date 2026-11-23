@@ -56,7 +56,7 @@ Combinar o adaptar mecánicas está permitido; inventar reglas complejas no. Usa
 ## 5. Elegir el formato
 | Situación del aula | Formato |
 | --- | --- |
-| Sin proyector o sin electricidad confiable | Impreso: tarjetas, tableros, cartas, hojas de registro (kit React → PDF) |
+| Sin proyector o sin electricidad confiable | Impreso: tarjetas, tableros, cartas, hojas de registro (diseño de recursos → PDF) |
 | Con proyector o televisión | Proyectado: página HTML sin internet (ver §6) |
 | Sin materiales | Corporal u oral: verdadero/falso con movimiento, adivinanzas, papa caliente de preguntas |
 

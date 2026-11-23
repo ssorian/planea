@@ -1,36 +1,70 @@
-// Uso: bun render.tsx <recurso.tsx> <carpeta-salida> [--png] [--html]
-// El recurso exporta `default` (componente sin props) y opcionalmente
-// `meta = { nombre: "anexo-03-rubrica", pagina: "letter" | "A4" | "letter landscape" }`.
+// Convierte un recurso terminado a PDF con un navegador Chromium sin ventana.
+// Uso: bun convertir.tsx <recurso.html|recurso.tsx> <carpeta-salida> [--png] [--html] [--pagina "letter landscape"]
+// - .html: se imprime tal cual; el tamaño de página lo define su CSS (@page) o --pagina.
+// - .tsx: exporta `default` (componente sin props) y opcionalmente
+//   `meta = { nombre: "anexo-03-rubrica", pagina: "letter", css: "estilos.css" }` (css relativo al .tsx).
+// El conversor no añade estilos: el diseño es del recurso.
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
 import { mkdirSync, readFileSync, writeFileSync, rmSync, existsSync } from "node:fs";
-import { resolve, dirname, basename, join } from "node:path";
+import { resolve, dirname, basename, join, extname } from "node:path";
 import { pathToFileURL } from "node:url";
 
-const [entrada, salida, ...flags] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const flags = new Set(args.filter((a) => a === "--png" || a === "--html"));
+const iPag = args.indexOf("--pagina");
+const paginaArg = iPag >= 0 ? args[iPag + 1] : undefined;
+const posicionales = args.filter((a, i) => !a.startsWith("--") && (iPag < 0 || i !== iPag + 1));
+const [entrada, salida] = posicionales;
 if (!entrada || !salida) {
-  console.error("Uso: bun render.tsx <recurso.tsx> <carpeta-salida> [--png] [--html]");
+  console.error('Uso: bun convertir.tsx <recurso.html|recurso.tsx> <carpeta-salida> [--png] [--html] [--pagina "letter landscape"]');
   process.exit(2);
 }
 
 const ruta = resolve(entrada);
-const mod = await import(ruta);
-if (typeof mod.default !== "function") throw new Error("El recurso debe exportar un componente por defecto");
-const meta = mod.meta ?? {};
-const nombre: string = meta.nombre ?? basename(ruta).replace(/\.tsx?$/, "");
-const pagina: string = meta.pagina ?? "letter";
-
-const css = readFileSync(join(import.meta.dir, "estilos.css"), "utf8");
-const cuerpo = renderToStaticMarkup(createElement(mod.default));
-const base = pathToFileURL(dirname(ruta) + "/").href;
-const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><base href="${base}">
-<title>${nombre}</title><style>${css}\n@page { size: ${pagina}; }</style></head><body>${cuerpo}</body></html>`;
-
+if (!existsSync(ruta)) { console.error(`No existe: ${ruta}`); process.exit(2); }
 const dir = resolve(salida);
 mkdirSync(dir, { recursive: true });
-const htmlPath = join(dir, `${nombre}.html`);
+const esHtml = /\.html?$/i.test(ruta);
+
+let nombre: string;
+let pagina: string | undefined = paginaArg;
+let htmlPath: string;
+let htmlGenerado = false;
+
+if (esHtml) {
+  nombre = basename(ruta, extname(ruta));
+  if (pagina) {
+    // Inyectar solo el tamaño de página en una copia junto al original (para conservar rutas relativas).
+    const original = readFileSync(ruta, "utf8");
+    const regla = `<style>@page { size: ${pagina}; }</style>`;
+    const copia = /<\/head>/i.test(original) ? original.replace(/<\/head>/i, `${regla}</head>`) : regla + original;
+    htmlPath = join(dirname(ruta), `.${nombre}.pagina.html`);
+    writeFileSync(htmlPath, copia);
+    htmlGenerado = true;
+  } else {
+    htmlPath = ruta;
+  }
+} else if (/\.[jt]sx$/i.test(ruta)) {
+  const mod = await import(ruta);
+  if (typeof mod.default !== "function") throw new Error("El recurso .tsx debe exportar un componente por defecto");
+  const meta = mod.meta ?? {};
+  nombre = meta.nombre ?? basename(ruta).replace(/\.[jt]sx$/i, "");
+  pagina = pagina ?? meta.pagina;
+  const css = meta.css ? readFileSync(resolve(dirname(ruta), meta.css), "utf8") : "";
+  const cuerpo = renderToStaticMarkup(createElement(mod.default));
+  const base = pathToFileURL(dirname(ruta) + "/").href;
+  const reglaPagina = pagina ? `@page { size: ${pagina}; }` : "";
+  const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><base href="${base}">
+<title>${nombre}</title><style>${css}\n${reglaPagina}</style></head><body>${cuerpo}</body></html>`;
+  htmlPath = join(dir, `${nombre}.html`);
+  writeFileSync(htmlPath, html);
+  htmlGenerado = true;
+} else {
+  console.error("El recurso debe ser .html o .tsx");
+  process.exit(2);
+}
 const pdfPath = join(dir, `${nombre}.pdf`);
-writeFileSync(htmlPath, html);
 
 // Navegador: variable PLANEA_NAVEGADOR, comandos en PATH o rutas habituales (Linux, macOS, Windows).
 function buscarNavegador(): string | undefined {
@@ -76,7 +110,7 @@ if (Bun.which("pdfinfo")) {
 
 const pngs: string[] = [];
 let vista = "";
-if (flags.includes("--png")) {
+if (flags.has("--png")) {
   if (Bun.which("pdftoppm")) {
     Bun.spawnSync(["pdftoppm", "-png", "-r", "110", pdfPath, join(dir, nombre)]);
     const fs = await import("node:fs");
@@ -84,7 +118,7 @@ if (flags.includes("--png")) {
     vista = "pdftoppm";
   } else {
     // Sin Poppler: captura del HTML con el navegador (aproximada; solo la primera pantalla).
-    const horizontal = /landscape/.test(pagina);
+    const horizontal = /landscape/.test(pagina ?? "");
     const tam = horizontal ? "1100,850" : "850,1100";
     const png = join(dir, `${nombre}-1.png`);
     Bun.spawnSync([chromium, "--headless=new", "--disable-gpu", "--hide-scrollbars", `--window-size=${tam}`,
@@ -92,6 +126,6 @@ if (flags.includes("--png")) {
     if (existsSync(png)) { pngs.push(png); vista = "captura-navegador (aproximada, primera pantalla)"; }
   }
 }
-if (!flags.includes("--html")) rmSync(htmlPath);
+if (htmlGenerado && !flags.has("--html")) rmSync(htmlPath);
 
 console.log(JSON.stringify({ pdf: pdfPath, paginas: Number(paginas) || paginas, png: pngs.sort(), vista }));

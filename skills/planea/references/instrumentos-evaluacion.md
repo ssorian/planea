@@ -57,4 +57,4 @@ Cada proyecto lleva un instrumento final para el producto definitivo y evaluaci�
 - En la coevaluación, usar un formato de retroalimentación constructiva (un logro, una sugerencia).
 
 ## Producción
-Crear los instrumentos con el kit React → PDF (componentes `Rubrica`, `ListaCotejo`, `Examen`), no como imágenes generadas: el texto debe ser exacto y editable en su fuente. Insertar la vista previa en ANEXOS y citarlo en la sesión donde se aplica.
+Diseñar los instrumentos en HTML según [diseño de recursos](diseno-recursos.md) y convertirlos a PDF; no como imágenes generadas: el texto debe ser exacto y editable en su fuente. Insertar la vista previa en ANEXOS y citarlo en la sesión donde se aplica.

@@ -73,7 +73,7 @@ function Install-Dependencias([string]$skill) {
   if (Get-Command bun -ErrorAction SilentlyContinue) { $gestor = @("bun", "install") }
   elseif (Get-Command npm -ErrorAction SilentlyContinue) { $gestor = @("npm", "install", "--no-audit", "--no-fund") }
   else { Write-Warning "No hay bun ni npm; los kits no tendrán dependencias."; return }
-  foreach ($kit in @("kit-recursos")) {
+  foreach ($kit in @("conversor-pdf")) {
     $dir = Join-Path $skill "assets\$kit"
     if (Test-Path (Join-Path $dir "package.json")) {
       Write-Host "Instalando dependencias de $kit…"

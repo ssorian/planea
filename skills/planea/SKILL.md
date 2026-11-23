@@ -32,7 +32,7 @@ Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividad
 | Buscar actividades que funcionen | [investigación](references/investigacion-actividades.md) |
 | Usar materiales existentes | [materiales](references/materiales-existentes.md) |
 | Rúbrica, lista de cotejo, escala, examen | [instrumentos](references/instrumentos-evaluacion.md) |
-| Fichas, hojas, instrumentos en PDF | [React → PDF](references/recursos-react-pdf.md) |
+| Diseñar recursos (layout, visual) y pasarlos a PDF | [diseño de recursos](references/diseno-recursos.md) |
 | Diseñar juegos de repaso o activación | [juegos](references/juegos-didacticos.md) |
 | Leer o escribir la planeación DOCX | [documento DOCX](references/documento-docx.md) |
 | Falta reparto de horas o dato del contexto | Preguntar; no suponer. |
@@ -43,7 +43,7 @@ Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividad
 2. Analizar el campo; reunir preguntas abiertas en un solo bloque.
 3. Investigar actividades y materiales; elegir metodología, modelo de sesión y juegos.
 4. Diseñar sesiones, cronograma, recursos e instrumento; comprobar cobertura de PDA, Bloom y tiempos; presentar para aprobación.
-5. Producir recursos (kit PDF, juegos aprobados o materiales existentes) y la sección DOCX.
+5. Producir los recursos aprobados (materiales existentes o diseño propio en HTML → PDF) y la sección DOCX.
 6. Verificar con la [lista](assets/lista-verificacion.md); retirar temporales.
 
 ## Output Contract
@@ -51,5 +51,5 @@ Diseño: tabla de sesiones, cobertura PDA → sesión → criterio, cambios al R
 
 ## References
 - [Diseño](references/diseno-proyecto.md) · [Metodologías](references/metodologias.md) · [Sesiones](references/construccion-sesiones.md) · [Investigación](references/investigacion-actividades.md) · [Materiales](references/materiales-existentes.md)
-- [Instrumentos](references/instrumentos-evaluacion.md) · [React → PDF](references/recursos-react-pdf.md) · [Juegos](references/juegos-didacticos.md) · [DOCX](references/documento-docx.md)
-- Assets: [plantilla de sesión](assets/plantilla-sesion.md), [ficha de actividad](assets/ficha-actividad.md), [catálogo](assets/catalogo-materiales.csv), [lista](assets/lista-verificacion.md), [kit PDF](assets/kit-recursos/README.md), [docx_tool](assets/herramientas-docx/README.md)
+- [Instrumentos](references/instrumentos-evaluacion.md) · [Diseño de recursos](references/diseno-recursos.md) · [Juegos](references/juegos-didacticos.md) · [DOCX](references/documento-docx.md)
+- Assets: [plantilla de sesión](assets/plantilla-sesion.md), [ficha de actividad](assets/ficha-actividad.md), [catálogo](assets/catalogo-materiales.csv), [lista](assets/lista-verificacion.md), [conversor PDF](assets/conversor-pdf/README.md), [docx_tool](assets/herramientas-docx/README.md)

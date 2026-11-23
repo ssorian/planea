@@ -15,7 +15,7 @@ Marcar aprobado, pendiente o no aplica. Pendiente no es aprobado. En correccione
 
 ## Recursos, juegos e instrumentos
 - [ ] Materiales existentes evaluados con los criterios de selección; licencia y enlace verificados.
-- [ ] Recursos del kit PDF revisados en sus PNG: texto completo, ortografía, cifras, legibilidad.
+- [ ] Recursos propios diseñados según la guía (layout, jerarquía, tamaños, contraste, legibles en blanco y negro) y convertidos a PDF; PNG revisados: texto completo, ortografía, cifras, nada partido entre páginas.
 - [ ] Juegos diseñados para un PDA, con reglas breves, participación de todos, retroalimentación inmediata, diseño visual legible y respuestas verificadas; nombre y aspecto propios.
 - [ ] Instrumento final presente, ligado a los PDA, con niveles o indicadores observables y campos vacíos.
 - [ ] Exámenes con tabla de especificaciones y clave en archivo separado del alumnado.

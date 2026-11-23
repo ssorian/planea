@@ -7,7 +7,7 @@ Skill para agentes de IA (Pi, Claude Code y compatibles con `SKILL.md`) que dise
 - **Diseña proyectos y sesiones** con la taxonomía de Bloom revisada, las metodologías sociocríticas de la NEM, el DUA y modelos de sesión (5E, liberación gradual, Kolb, Gagné, Marzano).
 - **Investiga actividades que funcionan y materiales existentes** (videos, imágenes, hojas, diapositivas), con criterios de selección, licencias y citas.
 - **Crea instrumentos de evaluación:** rúbricas, listas de cotejo, escalas, exámenes con tabla de especificaciones, autoevaluación y coevaluación.
-- **Produce recursos imprimibles** con React → PDF (Chromium sin ventana).
+- **Orienta el diseño de recursos** (fichas, hojas de trabajo, láminas, organizadores, tarjetas, lecturas, instrumentos): layout, jerarquía, tipografía, color y accesibilidad. Cada recurso se construye en HTML o React y, al terminarlo, se convierte a PDF.
 - **Orienta el diseño de juegos didácticos**: mecánicas sencillas (respuesta simultánea con tarjetas de colores, respuestas ocultas por equipos, tablero de categorías, memorama, lotería, rally…), reglas didácticas, diseño muy visual y cómo construirlos impresos o proyectados con Vite cuando se aprueban.
 - **Lee y edita la planeación en Word** con `docx_tool.py`, que conserva el formato y gasta pocos tokens.
 
@@ -54,7 +54,7 @@ Copiar en Pi, Claude Code u otro agente con terminal:
 | Programa | Para qué | ¿Obligatorio? |
 | --- | --- | --- |
 | Agente compatible con `SKILL.md` (Pi, Claude Code u otro) | Usar la skill | Sí |
-| [Bun](https://bun.sh) 1.1+ (o Node.js 20+ con npm) | Kit PDF (y juegos proyectados con Vite, si se construyen) | Sí, para crear recursos |
+| [Bun](https://bun.sh) 1.1+ (o Node.js 20+ con npm) | Conversor a PDF (y juegos proyectados con Vite, si se construyen) | Sí, para pasar recursos a PDF |
 | Navegador Chromium: Chromium, Google Chrome o Microsoft Edge | Generar PDF y capturas | Sí, para PDF; Edge ya viene en Windows |
 | Python 3.9+ | `docx_tool.py` (solo biblioteca estándar, sin paquetes extra) | Sí, para leer y editar Word |
 | Git | Instalar desde un clon y actualizar | Opcional (en Windows el instalador puede bajar el ZIP) |
@@ -92,7 +92,7 @@ El instalador los instala solo con `bun install` (o `npm install`) dentro del ki
 
 | Kit | Paquetes |
 | --- | --- |
-| `kit-recursos` (React → PDF) | `react`, `react-dom` |
+| `conversor-pdf` | `react`, `react-dom` |
 
 Con `--sin-dependencias` (`-SinDependencias` en Windows) se omiten; después se pueden instalar con `bun install` en el kit.
 
@@ -108,7 +108,7 @@ skills/planea/
 ├── SKILL.md                    # contrato principal
 ├── references/                 # módulos que el agente carga según la tarea
 └── assets/
-    ├── kit-recursos/           # React → PDF (fichas, rúbricas, exámenes)
+    ├── conversor-pdf/          # recurso HTML o React → PDF
     ├── herramientas-docx/      # docx_tool.py
     └── plantillas y catálogos
 ```
