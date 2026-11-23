@@ -56,17 +56,19 @@ Cuando la figura enseña algo, la exactitud manda sobre la estética:
 Verificar cifras, nombres y proporciones antes de usar la figura. Una figura bonita pero errónea es peor que ninguna.
 
 ## 5. Bibliotecas de íconos y emoji con licencia libre
-Usar el SVG descargado o copiado dentro del recurso (sin cargarlo de internet al imprimir) y respetar la licencia:
+Usar el SVG descargado o copiado dentro del recurso (sin cargarlo de internet al imprimir) y respetar la licencia. Para dar acabado a un recurso con estos íconos, ver [calidad visual](calidad-visual.md).
 
-| Biblioteca | Contenido | Licencia | Atribución |
+| Biblioteca | Contenido | Licencia (verificada) | Atribución |
 | --- | --- | --- | --- |
-| Lucide | Íconos de línea | ISC | No obligatoria |
-| Tabler Icons | Íconos de línea | MIT | No obligatoria |
-| Phosphor Icons | Íconos en varios grosores | MIT | No obligatoria |
-| Microsoft Fluent Emoji | Emoji planos y 3D (animales, plantas, objetos) | MIT | No obligatoria |
-| Noto Emoji (Google) | Emoji de colores | Apache 2.0 / OFL | No obligatoria |
-| OpenMoji | Emoji de estilo uniforme | CC BY-SA 4.0 | Obligatoria; derivados con la misma licencia |
-| Twemoji | Emoji de colores | CC BY 4.0 | Obligatoria |
+| Lucide | Íconos de línea | ISC (unos pocos íconos derivados de Feather son MIT) | Conservar el aviso de copyright y de licencia al redistribuir los archivos |
+| Tabler Icons | Íconos de línea | MIT | Conservar el aviso de copyright y de licencia |
+| Phosphor Icons | Íconos en varios grosores | MIT | Conservar el aviso de copyright y de licencia |
+| Microsoft Fluent Emoji | Emoji planos y 3D (animales, plantas, objetos) | MIT | Conservar el aviso de copyright y de licencia |
+| Noto Emoji (Google) | Emoji de colores | Fuentes: SIL OFL 1.1; herramientas y la mayoría de las imágenes: Apache 2.0; banderas: dominio público o exentas | Apache 2.0: conservar licencia y avisos; OFL: conservar su aviso si se redistribuye la fuente |
+| OpenMoji | Emoji de estilo uniforme | CC BY-SA 4.0 | Obligatoria («All emojis designed by OpenMoji – the open-source emoji and icon project. License: CC BY-SA 4.0») e indicar los cambios; derivados con la misma licencia |
+| Twemoji | Emoji de colores | Gráficos: CC BY 4.0; código: MIT (proyecto mantenido en `jdecked/twemoji`) | Obligatoria para los gráficos; basta una mención en créditos o «Acerca de» |
+
+Verificado el 23/11/2026 en las páginas oficiales: [Lucide](https://lucide.dev/license), [Tabler](https://github.com/tabler/tabler-icons/blob/main/LICENSE), [Phosphor](https://github.com/phosphor-icons/core/blob/main/LICENSE), [Fluent Emoji](https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE), [Noto Emoji](https://github.com/googlefonts/noto-emoji#license), [OpenMoji](https://openmoji.org/faq/) y [Twemoji](https://github.com/jdecked/twemoji#license). Las licencias MIT, ISC y Apache no piden mención visible en una hoja impresa, pero sí conservar su aviso al redistribuir los archivos; por eso se recomienda una línea de créditos al pie del recurso.
 
 - Iconify reúne muchas colecciones; revisar la licencia de cada colección antes de usarla.
 - Comprobar la licencia vigente en la página oficial al usarla; registrar la atribución en las fuentes de la planeación.

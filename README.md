@@ -13,6 +13,7 @@ Trae instrucciones y guías, más tres herramientas pequeñas en Python (leer y 
   - estándar de layout (lo obligatorio, lo recomendado y lo libre) y una identidad visual propia para cada proyecto;
   - estructura de cada tipo de recurso;
   - al terminar, conversión a PDF y revisión de las vistas previas.
+- **Calidad visual de los recursos:** principios con evidencia (Mayer, Gestalt), color 60-30-10 con paletas por campo formativo y contraste calculado, lenguaje de formas, estilos de ilustración, recursos de composición con dosis y recetas por tipo de recurso.
 - **Figuras en HTML y React:** cómo dibujar animales, plantas, vehículos, objetos y diagramas exactos en SVG, componentes para figuras repetidas y bibliotecas de íconos con licencia libre.
 - **Estilos visuales de referencia:** cinco estilos lúdicos (bloques de respuesta, ruleta de categorías, gamificado amable, arcade de personajes y tarjetas temáticas), con layout, tokens propios y usos, inspirados en juegos educativos web sin copiar sus marcas.
 - **Diseño de juegos didácticos:** mecánicas sencillas, reglas didácticas y diseño muy visual; impresos, corporales o proyectados.
@@ -77,7 +78,8 @@ skills/planea/
 │   ├── diseno-proyecto.md · metodologias.md · construccion-sesiones.md
 │   ├── investigacion-actividades.md · materiales-existentes.md
 │   ├── instrumentos-evaluacion.md · diseno-recursos.md · juegos-didacticos.md
-│   ├── estilos-visuales.md · figuras-html.md · estructura-planeacion.md
+│   ├── estilos-visuales.md · calidad-visual.md · figuras-html.md
+│   ├── estructura-planeacion.md
 │   ├── documento-docx.md · herramientas.md
 │   └── estado-proyecto.md · glosario.md
 └── assets/
