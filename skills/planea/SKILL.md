@@ -21,6 +21,7 @@ Usar para analizar un RAIPA, diseñar proyectos y sesiones, investigar actividad
 - RAIPA y planeaciones previas: solo lectura. Seguir el formato de la planeación modelo del usuario.
 - Usar las herramientas de `assets/herramientas/` (`python3 -I` / `uv run`, ver [herramientas](references/herramientas.md)); no escribir scripts nuevos para lo que ya cubren. Los auxiliares que hagan falta van en `planea/trabajo/`. No volcar XML crudo al contexto.
 - Juegos: diseñarlos para cada PDA desde mecánicas sencillas y muy visuales; nombre y aspecto propios, sin marcas ni diseño de programas o apps. Construirlos solo si se aprueban.
+- Sin emoji en recursos ni juegos: figuras, personajes e íconos se dibujan con código (SVG/React).
 - Un campo a la vez; producir en DOCX solo diseños aprobados.
 - Instalar, descargar paquetes o usar servicios externos solo con permiso.
 

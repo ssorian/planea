@@ -168,7 +168,7 @@ Cada receta es un conjunto de elementos y su composición; adaptar la paleta y e
 
 Señales de **exceso o ruido** (si aparece una, simplificar):
 - más de 5 colores con significado o más de 2 tipografías;
-- ≥ 3 estilos de ilustración o mezcla de íconos de línea, planos y emoji;
+- ≥ 3 estilos de ilustración, mezcla de íconos de línea y planos, o cualquier emoji;
 - patrones, texturas o sombras difusas que compiten con el texto;
 - más de 3 globos, insignias o cintas por página; marcos dentro de marcos;
 - degradados, filtros o transparencias complejas (se rasterizan y se imprimen peor; 4over4);

@@ -14,7 +14,7 @@ Trae instrucciones y guías, más tres herramientas pequeñas en Python (leer y 
   - estructura de cada tipo de recurso;
   - al terminar, conversión a PDF y revisión de las vistas previas.
 - **Calidad visual de los recursos:** principios con evidencia (Mayer, Gestalt), color 60-30-10 con paletas por campo formativo y contraste calculado, lenguaje de formas, estilos de ilustración, recursos de composición con dosis y recetas por tipo de recurso.
-- **Figuras en HTML y React:** cómo dibujar animales, plantas, vehículos, objetos y diagramas exactos en SVG, componentes para figuras repetidas y bibliotecas de íconos con licencia libre.
+- **Figuras en HTML y React:** cómo dibujar animales, plantas, vehículos, objetos y diagramas exactos en SVG, componentes para figuras repetidas e íconos de línea con licencia libre; sin emoji.
 - **Estilos visuales de referencia:** cinco estilos lúdicos (bloques de respuesta, ruleta de categorías, gamificado amable, arcade de personajes y tarjetas temáticas), con layout, tokens propios y usos, inspirados en juegos educativos web sin copiar sus marcas.
 - **Diseño de juegos didácticos:** mecánicas sencillas, reglas didácticas y diseño muy visual; impresos, corporales o proyectados.
 - **Estructura de la planeación:** qué se conserva, llena o rediseña en cada tabla del RAIPA, una fila por sesión, referencias directas a anexos y ANEXOS en tablas 2×2 sin bordes.
