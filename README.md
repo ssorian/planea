@@ -2,119 +2,77 @@
 
 Skill para agentes de IA (Pi, Claude Code y compatibles con `SKILL.md`) que diseña y produce **planeaciones didácticas de telesecundaria NEM** a partir del RAIPA.
 
-## Qué hace
-- **Analiza el RAIPA:** temas, PDA, productos, tiempos, incongruencias y fuentes.
-- **Diseña proyectos y sesiones** con la taxonomía de Bloom revisada, las metodologías sociocríticas de la NEM, el DUA y modelos de sesión (5E, liberación gradual, Kolb, Gagné, Marzano).
-- **Investiga actividades que funcionan y materiales existentes** (videos, imágenes, hojas, diapositivas), con criterios de selección, licencias y citas.
-- **Crea instrumentos de evaluación:** rúbricas, listas de cotejo, escalas, exámenes con tabla de especificaciones, autoevaluación y coevaluación.
-- **Orienta el diseño de recursos** (fichas, hojas de trabajo, láminas, organizadores, tarjetas, lecturas, instrumentos): layout, jerarquía, tipografía, color y accesibilidad. Cada recurso se construye en HTML o React y, al terminarlo, se convierte a PDF.
-- **Orienta el diseño de juegos didácticos**: mecánicas sencillas (respuesta simultánea con tarjetas de colores, respuestas ocultas por equipos, tablero de categorías, memorama, lotería, rally…), reglas didácticas, diseño muy visual y cómo construirlos impresos o proyectados con Vite cuando se aprueban.
-- **Lee y edita la planeación en Word** con `docx_tool.py`, que conserva el formato y gasta pocos tokens.
+Son solo instrucciones y guías: no trae código, plantillas ni estilos fijos. Le dice al agente qué hacer, con qué criterios y con qué herramientas existentes.
+
+## Qué cubre
+- **Análisis del RAIPA:** temas, PDA, productos, tiempos, incongruencias y fuentes.
+- **Diseño de proyectos y sesiones** con la taxonomía de Bloom revisada, las metodologías sociocríticas de la NEM, el DUA y modelos de sesión (5E, liberación gradual, Kolb, Gagné, Marzano).
+- **Investigación de actividades que funcionan y de materiales existentes** (videos, imágenes, hojas, diapositivas): criterios de selección, licencias y citas.
+- **Instrumentos de evaluación:** rúbricas, listas de cotejo, escalas, exámenes con tabla de especificaciones, autoevaluación y coevaluación.
+- **Diseño de recursos:**
+  - estándar de layout (lo obligatorio, lo recomendado y lo libre) y una identidad visual propia para cada proyecto;
+  - estructura de cada tipo de recurso;
+  - al terminar, conversión a PDF y revisión de las vistas previas.
+- **Diseño de juegos didácticos:** mecánicas sencillas, reglas didácticas y diseño muy visual; impresos, corporales o proyectados.
+- **Edición de la planeación en Word**, con reglas para conservar formato, estilos, numeración e imágenes.
 
 Contenidos, subcontenidos y PDA del RAIPA nunca se modifican. Todo lo demás se rediseña y se presenta para aprobación antes de producirlo.
 
 ## Instalación
+Copiar la carpeta `skills/planea` a la carpeta de skills del agente:
 
-### Linux y macOS
+| Agente | Carpeta |
+| --- | --- |
+| Pi | `~/.pi/agent/skills/` |
+| Claude Code | `~/.claude/skills/` |
+| Otros | `~/.agents/skills/` o la que indique el agente |
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ssorian/planea/main/install.sh | bash
+git clone https://github.com/ssorian/planea.git
+cp -r planea/skills/planea ~/.pi/agent/skills/        # Linux/macOS
 ```
-o desde un clon:
-```bash
-git clone https://github.com/ssorian/planea.git && cd planea && ./install.sh
-```
-
-### Windows (PowerShell)
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/ssorian/planea/main/install.ps1)))
+git clone https://github.com/ssorian/planea.git
+Copy-Item -Recurse planea\skills\planea $HOME\.pi\agent\skills\   # Windows
 ```
-o desde un clon:
-```powershell
-git clone https://github.com/ssorian/planea.git; cd planea
-powershell -ExecutionPolicy Bypass -File .\install.ps1
-```
-Si no hay `git`, el instalador descarga el ZIP del repositorio.
-
-### Opciones
-| Linux/macOS | Windows | Efecto |
-| --- | --- | --- |
-| `--destino pi\|claude\|agents\|todos\|RUTA` | `-Destino …` | Carpeta de skills. Por defecto, las que ya existan (`~/.pi/agent/skills`, `~/.claude/skills`, `~/.agents/skills`). |
-| `--enlace` | `-Enlace` | Enlace al clon para desarrollo (en Windows, unión de directorio; no requiere administrador). |
-| `--sin-dependencias` | `-SinDependencias` | No instala React ni Vite en los kits. |
-| `--desinstalar` | `-Desinstalar` | Quita la skill. |
+Para actualizar: `git pull` y volver a copiar. Para desarrollo se puede usar un enlace simbólico (en Windows, una unión de directorio: `New-Item -ItemType Junction`).
 
 ### Pedirle a un agente que la instale
-Copiar en Pi, Claude Code u otro agente con terminal:
+> Instala la skill planea desde https://github.com/ssorian/planea: copia la carpeta `skills/planea` del repositorio a mi carpeta de skills, confirma que existe `SKILL.md` y dime qué herramientas de `references/herramientas.md` faltan en este equipo.
 
-> Instala la skill planea desde https://github.com/ssorian/planea siguiendo su README: usa `install.sh` en Linux/macOS o `install.ps1` en Windows, sin opciones salvo que yo indique otra cosa. Luego confirma que existe `SKILL.md` en la carpeta de skills y dime qué requisitos faltan.
+## Herramientas que usará el agente
+No hace falta instalarlas antes. El agente comprueba qué hay y, con permiso, ejecuta lo que falte al momento con `uvx`, `uv run --with`, `npx` o `bunx`.
 
-## Dependencias
-
-### Programas del sistema
-| Programa | Para qué | ¿Obligatorio? |
+| Herramienta | Para qué | Recomendación |
 | --- | --- | --- |
-| Agente compatible con `SKILL.md` (Pi, Claude Code u otro) | Usar la skill | Sí |
-| [Bun](https://bun.sh) 1.1+ (o Node.js 20+ con npm) | Conversor a PDF (y juegos proyectados con Vite, si se construyen) | Sí, para pasar recursos a PDF |
-| Navegador Chromium: Chromium, Google Chrome o Microsoft Edge | Generar PDF y capturas | Sí, para PDF; Edge ya viene en Windows |
-| Python 3.9+ | `docx_tool.py` (solo biblioteca estándar, sin paquetes extra) | Sí, para leer y editar Word |
-| Git | Instalar desde un clon y actualizar | Opcional (en Windows el instalador puede bajar el ZIP) |
-| Poppler (`pdftoppm`, `pdfinfo`) | Vista previa de todas las páginas del PDF | Opcional; sin él se usa una captura aproximada de la primera página |
+| [uv](https://docs.astral.sh/uv/) | Ejecutar `python-docx`, `docxcompose` y `markitdown` sin instalación global | Muy recomendado |
+| Python 3.9+ | Scripts auxiliares para Word | Necesario para editar DOCX |
+| Chromium, Google Chrome o Microsoft Edge | Pasar recursos HTML a PDF y hacer capturas | Necesario para PDF (Edge ya viene en Windows) |
+| Node.js con `npx`, o [Bun](https://bun.sh) con `bunx` | Playwright, React y Vite cuando hagan falta | Opcional |
+| Poppler (`pdftoppm`, `pdfinfo`) | Vistas previas y conteo de páginas | Recomendado |
+| LibreOffice | Renderizar DOCX para revisarlo | Opcional |
+| Búsqueda web y generación de imágenes del agente | Investigar materiales e ilustrar recursos | Recomendado |
 
-El navegador se detecta solo. Si no lo encuentra, definir `PLANEA_NAVEGADOR` con la ruta del ejecutable.
-
-### Cómo instalarlas
-**Windows** (PowerShell con `winget`):
-```powershell
-powershell -c "irm bun.sh/install.ps1 | iex"   # Bun
-winget install Python.Python.3.12
-winget install Git.Git                         # opcional
-scoop install poppler                          # opcional (requiere Scoop)
-```
-**Debian/Ubuntu:**
-```bash
-curl -fsSL https://bun.sh/install | bash
-sudo apt install python3 chromium poppler-utils git
-```
-**Arch Linux:**
-```bash
-curl -fsSL https://bun.sh/install | bash
-sudo pacman -S python chromium poppler git
-```
-**macOS** (Homebrew):
-```bash
-curl -fsSL https://bun.sh/install | bash
-brew install python poppler git
-brew install --cask google-chrome
-```
-
-### Paquetes de JavaScript
-El instalador los instala solo con `bun install` (o `npm install`) dentro del kit. Esto requiere internet la primera vez; después todo funciona sin conexión.
-
-| Kit | Paquetes |
-| --- | --- |
-| `conversor-pdf` | `react`, `react-dom` |
-
-Con `--sin-dependencias` (`-SinDependencias` en Windows) se omiten; después se pueden instalar con `bun install` en el kit.
-
-Los juegos proyectados no traen dependencias preinstaladas: cuando se aprueba uno, el agente crea su proyecto con Vite (`vite`, `@vitejs/plugin-react`, `vite-plugin-singlefile`, React), lo que requiere internet la primera vez.
-
-### Opcional en el agente
-- Búsqueda web, para investigar actividades y materiales.
-- Generación de imágenes (por ejemplo, `openai_image` en Pi), para las ilustraciones. Sin ella, la skill usa materiales existentes o recursos de solo texto.
+Instalación rápida de lo recomendado:
+- **Windows:** `winget install astral-sh.uv Python.Python.3.12`; Poppler con `scoop install poppler`.
+- **Debian/Ubuntu:** `curl -LsSf https://astral.sh/uv/install.sh | sh` y `sudo apt install python3 chromium poppler-utils`.
+- **Arch:** `sudo pacman -S uv python chromium poppler`.
+- **macOS:** `brew install uv python poppler` y `brew install --cask google-chrome`.
 
 ## Estructura
 ```
 skills/planea/
-├── SKILL.md                    # contrato principal
-├── references/                 # módulos que el agente carga según la tarea
-└── assets/
-    ├── conversor-pdf/          # recurso HTML o React → PDF
-    ├── herramientas-docx/      # docx_tool.py
-    └── plantillas y catálogos
+├── SKILL.md          # contrato principal: reglas, decisiones y pasos
+├── references/       # guías que el agente carga según la tarea
+│   ├── diseno-proyecto.md · metodologias.md · construccion-sesiones.md
+│   ├── investigacion-actividades.md · materiales-existentes.md
+│   ├── instrumentos-evaluacion.md · diseno-recursos.md · juegos-didacticos.md
+│   └── documento-docx.md · herramientas.md
+└── assets/           # plantillas de registro y lista de verificación (texto)
 ```
 
 ## Uso
-Pide a tu agente, por ejemplo: «Analiza el campo de Lenguajes del RAIPA y propón las sesiones», «Haz la rúbrica del producto final» o «Propón un juego de repaso para el cierre de la sesión 3».
+Pide a tu agente, por ejemplo: «Analiza el campo de Lenguajes del RAIPA y propón las sesiones», «Diseña la rúbrica del producto final» o «Propón un juego de repaso para el cierre de la sesión 3».
 
 ## Licencia
-Apache-2.0. La guía de juegos pide mecánicas de género con nombres y diseño propios, sin afiliación a programas de televisión ni aplicaciones.
+Apache-2.0.

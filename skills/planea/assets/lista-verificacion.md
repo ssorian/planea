@@ -27,7 +27,7 @@ Marcar aprobado, pendiente o no aplica. Pendiente no es aprobado. En correccione
 - [ ] CRONOGRAMA como tabla nativa editable.
 - [ ] ANEXOS 2×2, máximo cuatro por hoja, solo título y vista previa (más URL en videos).
 - [ ] Cada anexo está citado en una consigna y cada consigna apunta a un anexo existente.
-- [ ] `docx_tool.py verificar` sin problemas; `comparar` sin cambios estructurales no previstos.
+- [ ] DOCX reabierto con otra biblioteca; conteos antes/después sin cambios estructurales no previstos; relaciones e IDs válidos.
 - [ ] Portada y portadillas caben en su hoja (renderizado o revisión pendiente del usuario).
 - [ ] Originales y archivos de referencia intactos.
 

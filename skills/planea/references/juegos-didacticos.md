@@ -63,7 +63,7 @@ Combinar o adaptar mecánicas está permitido; inventar reglas complejas no. Usa
 Ofrecer siempre una alternativa impresa u oral del juego proyectado.
 
 ## 6. Construir un juego proyectado (Vite)
-Solo con el diseño aprobado. La primera instalación requiere internet y permiso del usuario.
+Solo con el diseño aprobado. Comandos en [herramientas](herramientas.md); la primera ejecución descarga paquetes y requiere permiso.
 1. Crear el proyecto en `Recursos/juegos/<nombre>/` del proyecto didáctico: `bun create vite <nombre> --template react-ts`; añadir `vite-plugin-singlefile` para que el build sea un solo HTML que funcione con doble clic y sin internet.
 2. Separar los datos (preguntas, respuestas, puntos) en un JSON y validarlos al construir; la lógica no contiene contenido curricular.
 3. Controles por teclado y ratón; atajos visibles en una pantalla de ayuda; pantalla completa.
